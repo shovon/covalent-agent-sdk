@@ -5,8 +5,8 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-	title: "My Site",
-	tagline: "Dinosaurs are cool",
+	title: "Covalent Agent SDK",
+	tagline: "Hook into the AI and blockhain universe",
 	favicon: "img/favicon.ico",
 
 	// Set the production url of your site here
@@ -88,11 +88,11 @@ const config: Config = {
 			items: [
 				{
 					type: "docSidebar",
-					sidebarId: "tutorialSidebar",
+					sidebarId: "docsSidebar",
 					position: "left",
-					label: "Tutorial",
+					label: "Docs",
 				},
-				{ to: "/blog", label: "Blog", position: "left" },
+				// { to: "/blog", label: "Blog", position: "left" },
 				{
 					href: "https://github.com/facebook/docusaurus",
 					label: "GitHub",
@@ -129,19 +129,19 @@ const config: Config = {
 						},
 					],
 				},
-				{
-					title: "More",
-					items: [
-						{
-							label: "Blog",
-							to: "/blog",
-						},
-						{
-							label: "GitHub",
-							href: "https://github.com/facebook/docusaurus",
-						},
-					],
-				},
+				// {
+				// 	title: "More",
+				// 	items: [
+				// 		{
+				// 			label: "Blog",
+				// 			to: "/blog",
+				// 		},
+				// 		{
+				// 			label: "GitHub",
+				// 			href: "https://github.com/facebook/docusaurus",
+				// 		},
+				// 	],
+				// },
 			],
 			copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
 		},
