@@ -14,7 +14,7 @@ export class Agent {
 	 * @param chainName The chain to lookup
 	 * @param options Contains the wallet address and contract address.
 	 */
-	async getTokenBalances(
+	async getTokenBalancesForChain(
 		chainName: ChainName,
 		{
 			walletAddress,
@@ -81,9 +81,7 @@ export class Agent {
 		return it;
 	}
 
-	portfolioGrowth() {
-		throw new Error("Portfolio growth not yet implemented");
-	}
+	portfolioGrowth() {}
 
 	trends() {
 		throw new Error("Trends not yet implemented");
