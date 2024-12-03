@@ -80,7 +80,7 @@ const config: Config = {
 		// Replace with your project's social card
 		image: "img/docusaurus-social-card.jpg",
 		navbar: {
-			title: "My Site",
+			title: "Covalent Agent SDK",
 			logo: {
 				alt: "My Site Logo",
 				src: "img/logo.svg",
