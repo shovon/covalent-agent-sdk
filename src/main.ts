@@ -10,45 +10,75 @@ export class Agent {
 	}
 
 	/**
-	 * The balances of the ERC20 tokens
+	 * The total balance of an ERC20 token that belongs to a given WalletAddress
 	 * @param chainName The chain to lookup
-	 * @param walletAddress The wallet address for which to look up
-	 * @param contractAddress The address of the ERC20 contract
+	 * @param options Contains the wallet address and contract address.
 	 */
-	async tokenBalances(
+	async getTokenBalances(
 		chainName: ChainName,
-		walletAddress: string,
-		contractAddress: string,
-	) {
-		const it = this.client.BalanceService.getErc20TransfersForWalletAddress(
-			chainName,
+		{
 			walletAddress,
-			{ contractAddress },
+			contractAddress,
+		}: { walletAddress: string; contractAddress: string },
+	) {
+		const historicals = await this.getHistoricalTokenBalancesForAddress(
+			chainName,
+			{ walletAddress },
 		);
-
 		let sum = 0n;
-		for await (const el of it) {
-			sum += (el.data?.items ?? [])
-				.flatMap(e =>
-					(e.transfers ?? []).map(n => {
-						if (!n.delta) return 0n;
-						return n.to_address?.toLocaleLowerCase() !==
-							walletAddress.toLowerCase()
-							? -n.delta
-							: n.delta;
-					}),
-				)
-				.reduce((prev, next) => prev + next, 0n);
+		for (const historical of historicals?.items ?? []) {
+			if (historical.contract_address === contractAddress) {
+				sum += historical.balance ?? 0n;
+			}
 		}
 		return sum;
 	}
 
-	netAssetValue() {
+	async getHistoricalTokenBalancesForAddress(
+		chainName: ChainName,
+		{ walletAddress }: { walletAddress: string },
+	) {
+		const resp =
+			await this.client.BalanceService.getHistoricalTokenBalancesForWalletAddress(
+				chainName,
+				walletAddress,
+			);
+		return resp.data;
+	}
+
+	/**
+	 *
+	 * @param chainName The chain to lookup
+	 * @param options  Contains the wallet address
+	 */
+	async getNetAssetValue(
+		chainName: ChainName,
+		{ walletAddress }: { walletAddress: string },
+	) {
+		const historicals = await this.getHistoricalTokenBalancesForAddress(
+			chainName,
+			{
+				walletAddress,
+			},
+		);
+		for (const historical of historicals?.items ?? []) {
+			// console.log(historical.contract_ticker_symbol);
+		}
+
 		throw new Error("NAV not yet implemented");
 	}
 
-	transactionHistory() {
-		throw new Error("Transaction history not yet implemented");
+	async transactionHistory(
+		chainName: ChainName,
+		{ walletAddress }: { walletAddress: string },
+	) {
+		const it =
+			await this.client.TransactionService.getAllTransactionsForAddress(
+				chainName,
+				walletAddress,
+			);
+
+		return it;
 	}
 
 	portfolioGrowth() {
