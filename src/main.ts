@@ -1,4 +1,4 @@
-import { GoldRushClient } from "@covalenthq/client-sdk";
+import { GoldRushClient, ChainName, ChainID } from "@covalenthq/client-sdk";
 
 export class Agent {
 	private client: GoldRushClient;
@@ -7,8 +7,25 @@ export class Agent {
 		this.client = new GoldRushClient(key);
 	}
 
-	tokenBalances() {
-		throw new Error("Token balances not yet implemented");
+	/**
+	 * The balances of the token
+	 * @param chainName The chain to lookup
+	 * @param walletAddress The wallet address for which to look up
+	 * @param contractAddress The address of the ERC20 contract
+	 */
+	async tokenBalances(
+		chainName: ChainName,
+		walletAddress: string,
+		contractAddress: string,
+	) {
+		const it = this.client.BalanceService.getErc20TransfersForWalletAddress(
+			ChainName.ETH_MAINNET,
+			walletAddress,
+		);
+
+		for await (const el of it) {
+			(el.data?.items ?? []).map(e => e.transfers?.map(t => t.balance));
+		}
 	}
 
 	netAssetValue() {
