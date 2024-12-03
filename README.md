@@ -1,11 +1,13 @@
 <div align="center">
-  [![GitHub license](https://img.shields.io/github/license/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/blob/main/LICENSE)
-  [![GitHub last commit](https://img.shields.io/github/last-commit/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/commits/master)
-  [![GitHub contributors](https://img.shields.io/github/contributors/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/graphs/contributors)
-  [![GitHub issues](https://img.shields.io/github/issues/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/issues)
-  [![GitHub pull requests](https://img.shields.io/github/issues-pr/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/pulls)
-  [![GitHub stars](https://img.shields.io/github/stars/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/stargazers)
-  [![GitHub forks](https://img.shields.io/github/forks/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/network/members)
+
+[![GitHub license](https://img.shields.io/github/license/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/blob/main/LICENSE)
+[![GitHub last commit](https://img.shields.io/github/last-commit/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/commits/master)
+[![GitHub contributors](https://img.shields.io/github/contributors/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/graphs/contributors)
+[![GitHub issues](https://img.shields.io/github/issues/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/pulls)
+[![GitHub stars](https://img.shields.io/github/stars/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/network/members)
+
 </div>
 
 <h1 align="center">Agent SDK for TypeScript</h1>
