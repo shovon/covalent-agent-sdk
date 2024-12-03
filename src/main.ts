@@ -1,5 +1,7 @@
 import { GoldRushClient, ChainName, ChainID } from "@covalenthq/client-sdk";
 
+export { ChainName } from "@covalenthq/client-sdk";
+
 export class Agent {
 	private client: GoldRushClient;
 
@@ -8,7 +10,7 @@ export class Agent {
 	}
 
 	/**
-	 * The balances of the token
+	 * The balances of the ERC20 tokens
 	 * @param chainName The chain to lookup
 	 * @param walletAddress The wallet address for which to look up
 	 * @param contractAddress The address of the ERC20 contract
@@ -19,13 +21,26 @@ export class Agent {
 		contractAddress: string,
 	) {
 		const it = this.client.BalanceService.getErc20TransfersForWalletAddress(
-			ChainName.ETH_MAINNET,
+			chainName,
 			walletAddress,
+			{ contractAddress },
 		);
 
+		let sum = 0n;
 		for await (const el of it) {
-			(el.data?.items ?? []).map(e => e.transfers?.map(t => t.balance));
+			sum += (el.data?.items ?? [])
+				.flatMap(e =>
+					(e.transfers ?? []).map(n => {
+						if (!n.delta) return 0n;
+						return n.to_address?.toLocaleLowerCase() !==
+							walletAddress.toLowerCase()
+							? -n.delta
+							: n.delta;
+					}),
+				)
+				.reduce((prev, next) => prev + next, 0n);
 		}
+		return sum;
 	}
 
 	netAssetValue() {

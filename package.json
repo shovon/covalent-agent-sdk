@@ -16,5 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "@covalenthq/client-sdk": "^2.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
   }
 }
