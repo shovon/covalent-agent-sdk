@@ -12,11 +12,11 @@
 
 <h1 align="center">Agent SDK for TypeScript</h1>
 
+<p>A TypeScript SDK for building AI agents that interact with blockchain data using Covalent's GoldRush platform.</p>
+
 <div align="center">
 Powered by <span><a href="https://github.com/covalenthq/goldrush-kit">GoldRush Kit.</a></span> Open-source. Customizable. 200+ Chains.
 </div>
-
-A TypeScript SDK for building AI agents that interact with blockchain data using Covalent's GoldRush platform.
 
 > Use with **[NodeJS v18](https://nodejs.org/en)** or above for best results.
 
