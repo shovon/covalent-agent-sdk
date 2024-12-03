@@ -1,7 +1,15 @@
-import { GoldRushClient, ChainName, ChainID } from "@covalenthq/client-sdk";
+import {
+	GoldRushClient,
+	ChainName,
+	ChainID,
+	Quote,
+} from "@covalenthq/client-sdk";
 
 export { ChainName } from "@covalenthq/client-sdk";
 
+/**
+ * The Covalent agent
+ */
 export class Agent {
 	private client: GoldRushClient;
 
@@ -51,9 +59,9 @@ export class Agent {
 	 * @param chainName The chain to lookup
 	 * @param options  Contains the wallet address
 	 */
-	async getNetAssetValue(
+	async getTokenHoldings(
 		chainName: ChainName,
-		{ walletAddress }: { walletAddress: string },
+		{ walletAddress, currency }: { walletAddress: string; currency: Quote },
 	) {
 		const historicals = await this.getHistoricalTokenBalancesForAddress(
 			chainName,
@@ -61,8 +69,41 @@ export class Agent {
 				walletAddress,
 			},
 		);
+
+		// TODO: NAV should get a breakdown by asset.
+
+		const tokenQuotes = new Map<string, number>();
+
 		for (const historical of historicals?.items ?? []) {
-			// console.log(historical.contract_ticker_symbol);
+			if (!historical.contract_address) continue;
+			if (!historical.contract_decimals) continue;
+			if (!historical.balance) continue;
+			const quotes = await this.getQuote(chainName, {
+				contractAddress: historical.contract_address,
+				currency,
+			});
+			if (!quotes) continue;
+
+			let total = 0;
+			let count = 0;
+
+			for (const quote of quotes) {
+				for (const item of quote.items ?? []) {
+					if (item.price === null) continue;
+					total += item.price;
+					count++;
+				}
+			}
+
+			// TODO: determine if it's better to conver the numberator to a number or
+			//   or… the denominator to BigInt
+			const nav =
+				count === 0
+					? 0
+					: (Number(historical.balance) / 10 ** historical.contract_decimals) *
+					  (total / count);
+
+			console.log(historical.contract_address, nav);
 		}
 
 		throw new Error("NAV not yet implemented");
@@ -79,6 +120,20 @@ export class Agent {
 			);
 
 		return it;
+	}
+
+	async getQuote(
+		chainNane: ChainName,
+		{ contractAddress, currency }: { contractAddress: string; currency: Quote },
+	) {
+		// TODO: handle errors.
+		return (
+			await this.client.PricingService.getTokenPrices(
+				chainNane,
+				currency,
+				contractAddress,
+			)
+		).data;
 	}
 
 	portfolioGrowth() {}
