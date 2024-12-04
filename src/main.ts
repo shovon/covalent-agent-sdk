@@ -71,7 +71,14 @@ export class Agent {
 	 */
 	async getTokenHoldings(
 		chainName: ChainName,
-		{ walletAddress, currency }: { walletAddress: string; currency: Quote },
+		{
+			walletAddress,
+			currency,
+		}: {
+			walletAddress: string;
+			currency: Quote;
+			date?: string | null | undefined;
+		},
 	) {
 		const historicals = await this.getHistoricalTokenBalancesForAddress(
 			chainName,
@@ -137,10 +144,12 @@ export class Agent {
 	}
 
 	/**
+	 * Retrieves the transaction history for a given wallet address on a specified blockchain.
 	 *
-	 * @param chainName The name of the
-	 * @param param1
-	 * @returns
+	 * @param {ChainName} chainName - The name of the blockchain to query.
+	 * @param {Object} params - The parameters for the query.
+	 * @param {string} params.walletAddress - The wallet address to retrieve the transaction history for.
+	 * @returns {Promise<any>} A promise that resolves to the transaction history.
 	 */
 	async transactionHistory(
 		chainName: ChainName,
@@ -155,6 +164,15 @@ export class Agent {
 		return it;
 	}
 
+	/**
+	 * Gets the current price quote for a token on a specific chain.
+	 *
+	 * @param {ChainName} chainNane - The blockchain network to query
+	 * @param {Object} params - The parameters for the quote request
+	 * @param {string} params.contractAddress - The contract address of the token
+	 * @param {Quote} params.currency - The currency to get the price quote in (e.g. "USD")
+	 * @returns {Promise<any>} A promise that resolves to the token price data
+	 */
 	async getQuote(
 		chainNane: ChainName,
 		{ contractAddress, currency }: { contractAddress: string; currency: Quote },
@@ -170,16 +188,4 @@ export class Agent {
 	}
 
 	portfolioGrowth() {}
-
-	trends() {
-		throw new Error("Trends not yet implemented");
-	}
-
-	portfolioView() {
-		throw new Error("Portfolio view not yet implemented");
-	}
-
-	lpPools() {
-		throw new Error("LP Pools not yet implemented");
-	}
 }

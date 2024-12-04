@@ -8,11 +8,15 @@ The Covalent agent
 
 > **new Agent**(`key`): [`Agent`](Agent.md)
 
+Initializes a new instances of the Agent class.
+
 #### Parameters
 
 ##### key
 
 `string`
+
+The GoldRush API key
 
 #### Returns
 
@@ -20,13 +24,15 @@ The Covalent agent
 
 #### Defined in
 
-[src/main.ts:16](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L16)
+[src/main.ts:20](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L20)
 
 ## Methods
 
 ### getHistoricalTokenBalancesForAddress()
 
-> **getHistoricalTokenBalancesForAddress**(`chainName`, `__namedParameters`): `Promise`\<`null` \| `Nullable`\<`object`\>\>
+> **getHistoricalTokenBalancesForAddress**(`chainName`, `param1`): `Promise`\<`null` \| `Nullable`\<`object`\>\>
+
+Gets the historical token balances for the supplied address.
 
 #### Parameters
 
@@ -34,7 +40,11 @@ The Covalent agent
 
 [`ChainName`](../enumerations/ChainName.md)
 
-##### \_\_namedParameters
+The chain that we're going to be working with
+
+##### param1
+
+A set of options that simply includes the walletAddress
 
 ###### walletAddress
 
@@ -44,15 +54,19 @@ The Covalent agent
 
 `Promise`\<`null` \| `Nullable`\<`object`\>\>
 
+some and metadata that represents the list of historical balances
+
 #### Defined in
 
-[src/main.ts:45](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L45)
+[src/main.ts:55](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L55)
 
 ***
 
 ### getQuote()
 
-> **getQuote**(`chainNane`, `__namedParameters`): `Promise`\<`null` \| `Nullable`\<`object`\>[]\>
+> **getQuote**(`chainNane`, `params`): `Promise`\<`null` \| `Nullable`\<`object`\>[]\>
+
+Gets the current price quote for a token on a specific chain.
 
 #### Parameters
 
@@ -60,23 +74,33 @@ The Covalent agent
 
 [`ChainName`](../enumerations/ChainName.md)
 
-##### \_\_namedParameters
+The blockchain network to query
+
+##### params
+
+The parameters for the quote request
 
 ###### contractAddress
 
 `string`
 
+The contract address of the token
+
 ###### currency
 
 `Quote`
+
+The currency to get the price quote in (e.g. "USD")
 
 #### Returns
 
 `Promise`\<`null` \| `Nullable`\<`object`\>[]\>
 
+A promise that resolves to the token price data
+
 #### Defined in
 
-[src/main.ts:125](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L125)
+[src/main.ts:176](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L176)
 
 ***
 
@@ -112,13 +136,15 @@ Contains the wallet address and contract address.
 
 #### Defined in
 
-[src/main.ts:25](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L25)
+[src/main.ts:29](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L29)
 
 ***
 
 ### getTokenHoldings()
 
-> **getTokenHoldings**(`chainName`, `options`): `Promise`\<`void`\>
+> **getTokenHoldings**(`chainName`, `options`): `Promise`\<`Nullable`\<`object`\> & `object`[]\>
+
+Gets the token holdings for a given wallet addres on a chain.
 
 #### Parameters
 
@@ -130,11 +156,15 @@ The chain to lookup
 
 ##### options
 
-Contains the wallet address
+Contains the wallet address and the currency to work with
 
 ###### currency
 
 `Quote`
+
+###### date
+
+`null` \| `string`
 
 ###### walletAddress
 
@@ -142,25 +172,11 @@ Contains the wallet address
 
 #### Returns
 
-`Promise`\<`void`\>
+`Promise`\<`Nullable`\<`object`\> & `object`[]\>
 
 #### Defined in
 
-[src/main.ts:62](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L62)
-
-***
-
-### lpPools()
-
-> **lpPools**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/main.ts:149](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L149)
+[src/main.ts:72](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L72)
 
 ***
 
@@ -174,27 +190,15 @@ Contains the wallet address
 
 #### Defined in
 
-[src/main.ts:139](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L139)
-
-***
-
-### portfolioView()
-
-> **portfolioView**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/main.ts:145](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L145)
+[src/main.ts:190](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L190)
 
 ***
 
 ### transactionHistory()
 
-> **transactionHistory**(`chainName`, `__namedParameters`): `Promise`\<`AsyncIterable`\<`GoldRushResponse`\<`Nullable`\<`object`\>\>, `any`, `any`\>\>
+> **transactionHistory**(`chainName`, `params`): `Promise`\<`AsyncIterable`\<`GoldRushResponse`\<`Nullable`\<`object`\>\>, `any`, `any`\>\>
+
+Retrieves the transaction history for a given wallet address on a specified blockchain.
 
 #### Parameters
 
@@ -202,30 +206,24 @@ Contains the wallet address
 
 [`ChainName`](../enumerations/ChainName.md)
 
-##### \_\_namedParameters
+The name of the blockchain to query.
+
+##### params
+
+The parameters for the query.
 
 ###### walletAddress
 
 `string`
 
+The wallet address to retrieve the transaction history for.
+
 #### Returns
 
 `Promise`\<`AsyncIterable`\<`GoldRushResponse`\<`Nullable`\<`object`\>\>, `any`, `any`\>\>
 
-#### Defined in
-
-[src/main.ts:112](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L112)
-
-***
-
-### trends()
-
-> **trends**(): `void`
-
-#### Returns
-
-`void`
+A promise that resolves to the transaction history.
 
 #### Defined in
 
-[src/main.ts:141](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L141)
+[src/main.ts:154](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L154)
