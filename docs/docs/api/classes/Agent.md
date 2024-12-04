@@ -20,7 +20,7 @@ The Covalent agent
 
 #### Defined in
 
-[src/main.ts:16](https://github.com/shovon/covalent-agent-sdk/blob/6137d483f2521e0042c2072a8e43f33ece28b71e/src/main.ts#L16)
+[src/main.ts:16](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L16)
 
 ## Methods
 
@@ -46,7 +46,7 @@ The Covalent agent
 
 #### Defined in
 
-[src/main.ts:45](https://github.com/shovon/covalent-agent-sdk/blob/6137d483f2521e0042c2072a8e43f33ece28b71e/src/main.ts#L45)
+[src/main.ts:45](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L45)
 
 ***
 
@@ -76,7 +76,7 @@ The Covalent agent
 
 #### Defined in
 
-[src/main.ts:125](https://github.com/shovon/covalent-agent-sdk/blob/6137d483f2521e0042c2072a8e43f33ece28b71e/src/main.ts#L125)
+[src/main.ts:125](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L125)
 
 ***
 
@@ -112,7 +112,7 @@ Contains the wallet address and contract address.
 
 #### Defined in
 
-[src/main.ts:25](https://github.com/shovon/covalent-agent-sdk/blob/6137d483f2521e0042c2072a8e43f33ece28b71e/src/main.ts#L25)
+[src/main.ts:25](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L25)
 
 ***
 
@@ -146,7 +146,7 @@ Contains the wallet address
 
 #### Defined in
 
-[src/main.ts:62](https://github.com/shovon/covalent-agent-sdk/blob/6137d483f2521e0042c2072a8e43f33ece28b71e/src/main.ts#L62)
+[src/main.ts:62](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L62)
 
 ***
 
@@ -160,7 +160,7 @@ Contains the wallet address
 
 #### Defined in
 
-[src/main.ts:149](https://github.com/shovon/covalent-agent-sdk/blob/6137d483f2521e0042c2072a8e43f33ece28b71e/src/main.ts#L149)
+[src/main.ts:149](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L149)
 
 ***
 
@@ -174,7 +174,7 @@ Contains the wallet address
 
 #### Defined in
 
-[src/main.ts:139](https://github.com/shovon/covalent-agent-sdk/blob/6137d483f2521e0042c2072a8e43f33ece28b71e/src/main.ts#L139)
+[src/main.ts:139](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L139)
 
 ***
 
@@ -188,7 +188,7 @@ Contains the wallet address
 
 #### Defined in
 
-[src/main.ts:145](https://github.com/shovon/covalent-agent-sdk/blob/6137d483f2521e0042c2072a8e43f33ece28b71e/src/main.ts#L145)
+[src/main.ts:145](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L145)
 
 ***
 
@@ -214,7 +214,7 @@ Contains the wallet address
 
 #### Defined in
 
-[src/main.ts:112](https://github.com/shovon/covalent-agent-sdk/blob/6137d483f2521e0042c2072a8e43f33ece28b71e/src/main.ts#L112)
+[src/main.ts:112](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L112)
 
 ***
 
@@ -228,4 +228,4 @@ Contains the wallet address
 
 #### Defined in
 
-[src/main.ts:141](https://github.com/shovon/covalent-agent-sdk/blob/6137d483f2521e0042c2072a8e43f33ece28b71e/src/main.ts#L141)
+[src/main.ts:141](https://github.com/shovon/covalent-agent-sdk/blob/f084aa9897aa14349a5f38d0509eeb3d7186eff3/src/main.ts#L141)
