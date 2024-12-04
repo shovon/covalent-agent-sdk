@@ -13,6 +13,10 @@ export { ChainName } from "@covalenthq/client-sdk";
 export class Agent {
 	private client: GoldRushClient;
 
+	/**
+	 * Initializes a new instances of the Agent class.
+	 * @param key The GoldRush API key
+	 */
 	constructor(key: string) {
 		this.client = new GoldRushClient(key);
 	}
@@ -42,6 +46,12 @@ export class Agent {
 		return sum;
 	}
 
+	/**
+	 * Gets the historical token balances for the supplied address.
+	 * @param chainName The chain that we're going to be working with
+	 * @param param1 A set of options that simply includes the walletAddress
+	 * @returns some and metadata that represents the list of historical balances
+	 */
 	async getHistoricalTokenBalancesForAddress(
 		chainName: ChainName,
 		{ walletAddress }: { walletAddress: string },
@@ -55,9 +65,9 @@ export class Agent {
 	}
 
 	/**
-	 *
+	 * Gets the token holdings for a given wallet addres on a chain.
 	 * @param chainName The chain to lookup
-	 * @param options  Contains the wallet address
+	 * @param options  Contains the wallet address and the currency to work with
 	 */
 	async getTokenHoldings(
 		chainName: ChainName,
@@ -72,12 +82,31 @@ export class Agent {
 
 		// TODO: NAV should get a breakdown by asset.
 
-		const tokenQuotes = new Map<string, number>();
+		const holdings = new Map<
+			string,
+			Exclude<Exclude<typeof historicals, null>["items"], null>[number] & {
+				value: {
+					amount: number;
+					currency: Quote;
+				};
+			}
+		>();
 
 		for (const historical of historicals?.items ?? []) {
 			if (!historical.contract_address) continue;
 			if (!historical.contract_decimals) continue;
 			if (!historical.balance) continue;
+
+			const holding = {
+				...historical,
+				value: {
+					amount: 0,
+					currency: currency,
+				},
+			};
+
+			holdings.set(historical.contract_address, holding);
+
 			const quotes = await this.getQuote(chainName, {
 				contractAddress: historical.contract_address,
 				currency,
@@ -97,18 +126,22 @@ export class Agent {
 
 			// TODO: determine if it's better to conver the numberator to a number or
 			//   or… the denominator to BigInt
-			const nav =
+			holding.value.amount =
 				count === 0
 					? 0
 					: (Number(historical.balance) / 10 ** historical.contract_decimals) *
 					  (total / count);
-
-			console.log(historical.contract_address, nav);
 		}
 
-		throw new Error("NAV not yet implemented");
+		return [...holdings].map(([, v]) => v);
 	}
 
+	/**
+	 *
+	 * @param chainName The name of the
+	 * @param param1
+	 * @returns
+	 */
 	async transactionHistory(
 		chainName: ChainName,
 		{ walletAddress }: { walletAddress: string },
