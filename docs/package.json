@@ -24,6 +24,7 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@covalenthq/client-sdk": "^2.2.1",
     "@docusaurus/module-type-aliases": "^3.6.3",
     "@docusaurus/tsconfig": "^3.6.3",
     "@docusaurus/types": "^3.6.3",
