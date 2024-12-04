@@ -24,7 +24,7 @@ The GoldRush API key
 
 #### Defined in
 
-[src/main.ts:20](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L20)
+[src/main.ts:20](https://github.com/shovon/covalent-agent-sdk/blob/8d1ef3baca97c8c4f586cabbe4cf90e92e11a87a/src/main.ts#L20)
 
 ## Methods
 
@@ -58,7 +58,7 @@ some and metadata that represents the list of historical balances
 
 #### Defined in
 
-[src/main.ts:55](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L55)
+[src/main.ts:55](https://github.com/shovon/covalent-agent-sdk/blob/8d1ef3baca97c8c4f586cabbe4cf90e92e11a87a/src/main.ts#L55)
 
 ***
 
@@ -100,7 +100,7 @@ A promise that resolves to the token price data
 
 #### Defined in
 
-[src/main.ts:176](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L176)
+[src/main.ts:176](https://github.com/shovon/covalent-agent-sdk/blob/8d1ef3baca97c8c4f586cabbe4cf90e92e11a87a/src/main.ts#L176)
 
 ***
 
@@ -136,7 +136,7 @@ Contains the wallet address and contract address.
 
 #### Defined in
 
-[src/main.ts:29](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L29)
+[src/main.ts:29](https://github.com/shovon/covalent-agent-sdk/blob/8d1ef3baca97c8c4f586cabbe4cf90e92e11a87a/src/main.ts#L29)
 
 ***
 
@@ -176,7 +176,7 @@ Contains the wallet address and the currency to work with
 
 #### Defined in
 
-[src/main.ts:72](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L72)
+[src/main.ts:72](https://github.com/shovon/covalent-agent-sdk/blob/8d1ef3baca97c8c4f586cabbe4cf90e92e11a87a/src/main.ts#L72)
 
 ***
 
@@ -190,7 +190,7 @@ Contains the wallet address and the currency to work with
 
 #### Defined in
 
-[src/main.ts:190](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L190)
+[src/main.ts:190](https://github.com/shovon/covalent-agent-sdk/blob/8d1ef3baca97c8c4f586cabbe4cf90e92e11a87a/src/main.ts#L190)
 
 ***
 
@@ -226,4 +226,4 @@ A promise that resolves to the transaction history.
 
 #### Defined in
 
-[src/main.ts:154](https://github.com/shovon/covalent-agent-sdk/blob/4dc4a9788425bf5308ac1d53e825afea691d94ce/src/main.ts#L154)
+[src/main.ts:154](https://github.com/shovon/covalent-agent-sdk/blob/8d1ef3baca97c8c4f586cabbe4cf90e92e11a87a/src/main.ts#L154)
