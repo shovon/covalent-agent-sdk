@@ -3,7 +3,7 @@
 # Agent SDK for TypeScript
 
 [![GitHub license](https://img.shields.io/github/license/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/blob/main/LICENSE)
-[![GitHub last commit](https://img.shields.io/github/last-commit/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/commits/master)
+[![GitHub last commit](https://img.shields.io/github/last-commit/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/commits/main)
 [![GitHub contributors](https://img.shields.io/github/contributors/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/graphs/contributors)
 [![GitHub issues](https://img.shields.io/github/issues/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/shovon/covalent-agent-sdk)](https://github.com/shovon/covalent-agent-sdk/pulls)

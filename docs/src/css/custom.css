@@ -15,8 +15,9 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-text-color: rgb(32, 32, 32);
-  color: var(--ifm-text-color);
+  --ifm-text-color-dark: rgb(32, 32, 32);
+  --ifm-text-color-light: white;
+  --ifm-text-color: var(--ifm-text-color-dark);
 }
 
 :root {
@@ -54,4 +55,9 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-text-color: var(--ifm-text-color-light);
+}
+
+:root {
+  color: var(--ifm-text-color);
 }
