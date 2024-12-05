@@ -54,3 +54,43 @@ export const transactionResponseSchema = z.object({
 	error_message: z.string().nullable(),
 	error_code: z.number().nullable(),
 });
+
+export const nftResponseSchema = z.object({
+	data: z.object({
+		updated_at: z.string(),
+		items: z.array(
+			z.object({
+				contract_name: z.string(),
+				contract_ticker_symbol: z.string(),
+				contract_address: z.string(),
+				supports_erc: z.array(z.string()),
+				is_spam: z.boolean(),
+				balance: z.string(),
+				balance_24h: z.string(),
+				type: z.string(),
+				floor_price_quote: z.number().nullable(),
+				pretty_floor_price_quote: z.string().nullable(),
+				floor_price_native_quote: z.number().nullable(),
+				nft_data: z
+					.array(
+						z.object({
+							token_id: z.string(),
+							token_balance: z.string(),
+							token_url: z.string().nullable(),
+							original_owner: z.string().nullable(),
+							current_owner: z.string().nullable(),
+							external_data: z.unknown(),
+							asset_cached: z.boolean(),
+							image_cached: z.boolean(),
+						}),
+					)
+					.nullable(),
+				last_transfered_at: z.string(),
+			}),
+		),
+		address: z.string(),
+	}),
+	error: z.boolean(),
+	error_message: z.string().nullable(),
+	error_code: z.number().nullable(),
+});

@@ -3,12 +3,13 @@ import {
 	ChainName,
 	ChainID,
 	Quote,
+	GoldRushResponse,
 } from "@covalenthq/client-sdk";
 
 export { ChainName } from "@covalenthq/client-sdk";
 
 import { z } from "zod";
-import { transactionResponseSchema } from "./schema";
+import { nftResponseSchema, transactionResponseSchema } from "./schema";
 
 type AllChainsResponse = z.infer<typeof allChainsResponseSchema>;
 
@@ -283,6 +284,17 @@ export class Agent {
 		return it;
 	}
 
+	/**
+	 * Retrieves transaction history across all supported blockchains for a given wallet address.
+	 *
+	 * @param {string} walletAddress - The wallet address to retrieve transactions for
+	 * @returns {Promise<z.infer<typeof transactionResponseSchema>>} A promise that resolves to the transaction history across all chains.
+	 *   The response follows the transactionResponseSchema structure which includes:
+	 *   - Updated timestamp
+	 *   - Pagination cursors
+	 *   - Quote currency
+	 *   - Array of transaction items with detailed metadata
+	 */
 	async getAllChainsTransactions(walletAddress: string) {
 		const options = {
 			method: "GET",
@@ -290,6 +302,8 @@ export class Agent {
 				Authorization: `Bearer ${this.key}`,
 			},
 		};
+
+		this.client.AllChainsService.getMultiChainAndMultiAddressTransactions();
 
 		return await fetch(
 			`https://api.covalenthq.com/v1/allchains/transactions/?addresses=${encodeURIComponent(
@@ -299,6 +313,27 @@ export class Agent {
 		).then(async response => {
 			return transactionResponseSchema.parse(await response.json());
 		});
+	}
+
+	async getNFTForWallet(
+		chainName: ChainName,
+		{ walletAddress }: { walletAddress: string },
+	) {
+		const options = {
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${this.key}`,
+			},
+		};
+
+		return nftResponseSchema.parse(
+			JSON.parse(
+				await fetch(
+					`https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/balances_nft/`,
+					options,
+				).then(response => response.text()),
+			),
+		);
 	}
 
 	/**
