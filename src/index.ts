@@ -186,6 +186,4 @@ export class Agent {
 			)
 		).data;
 	}
-
-	portfolioGrowth() {}
 }

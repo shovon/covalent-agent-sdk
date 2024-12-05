@@ -2,7 +2,8 @@
   "name": "@covalenthq/agent-sdk",
   "version": "0.1.0",
   "description": "Covalent Agent SDK. Build cool AI agents for the blockchain",
-  "main": "index.js",
+  "main": "dist",
+  "types": "dist",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
