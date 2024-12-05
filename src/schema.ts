@@ -94,3 +94,26 @@ export const nftResponseSchema = z.object({
 	error_message: z.string().nullable(),
 	error_code: z.number().nullable(),
 });
+
+export const nftFloorPriceSchema = z.object({
+	data: z.object({
+		address: z.string(),
+		updated_at: z.string(),
+		quote_currency: z.string(),
+		chain_id: z.number(),
+		chain_name: z.string(),
+		items: z.array(
+			z.object({
+				date: z.string(),
+				native_ticker_symbol: z.string(),
+				native_name: z.string(),
+				floor_price_native_quote: z.number(),
+				floor_price_quote: z.number(),
+				pretty_floor_price_quote: z.string(),
+			}),
+		),
+	}),
+	error: z.boolean(),
+	error_message: z.string().nullable(),
+	error_code: z.number().nullable(),
+});

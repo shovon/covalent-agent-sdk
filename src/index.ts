@@ -9,7 +9,11 @@ import {
 export { ChainName } from "@covalenthq/client-sdk";
 
 import { z } from "zod";
-import { nftResponseSchema, transactionResponseSchema } from "./schema";
+import {
+	nftFloorPriceSchema,
+	nftResponseSchema,
+	transactionResponseSchema,
+} from "./schema";
 
 type AllChainsResponse = z.infer<typeof allChainsResponseSchema>;
 
@@ -315,6 +319,21 @@ export class Agent {
 		});
 	}
 
+	/**
+	 * Retrieves NFT balances and metadata for a given wallet address on a specific blockchain.
+	 *
+	 * @param {ChainName} chainName - The blockchain network to query
+	 * @param {Object} params - The parameters for the NFT request
+	 * @param {string} params.walletAddress - The wallet address to get NFTs for
+	 * @returns {Promise<z.infer<typeof nftResponseSchema>>} A promise that resolves to the NFT data.
+	 *   The response follows the nftResponseSchema structure which includes:
+	 *   - Updated timestamp
+	 *   - Array of NFT items with:
+	 *     - Contract details (name, symbol, address)
+	 *     - Balance information
+	 *     - Floor prices
+	 *     - Token-specific data (ID, balance, URLs, ownership)
+	 */
 	async getNFTForWallet(
 		chainName: ChainName,
 		{ walletAddress }: { walletAddress: string },
@@ -332,6 +351,29 @@ export class Agent {
 					`https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/balances_nft/`,
 					options,
 				).then(response => response.text()),
+			),
+		);
+	}
+
+	async getNFTFloorPrice(
+		chainName: ChainName,
+		{ contractAddress }: { contractAddress: string },
+	) {
+		const options = {
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${this.key}`,
+			},
+		};
+
+		return nftFloorPriceSchema.parse(
+			JSON.parse(
+				await fetch(
+					`https://api.covalenthq.com/v1/${chainName}/nft_market/${contractAddress}/floor_price/`,
+					options,
+				).then(response => {
+					return response.text();
+				}),
 			),
 		);
 	}
