@@ -15,119 +15,6 @@ import {
 	transactionResponseSchema,
 } from "./schema";
 
-type AllChainsResponse = z.infer<typeof allChainsResponseSchema>;
-
-const allChainsResponseGasMetadata = z.object({
-	contract_decimals: z.number(),
-	contract_name: z.string(),
-	contract_ticker_symbol: z.string(),
-	contract_address: z.string(),
-	supports_erc: z.array(z.string()),
-	logo_url: z.string(),
-});
-
-const explorerSchema = z.object({
-	label: z.string(),
-	url: z.string(),
-});
-
-const logEventSchema = z.object({
-	block_signed_at: z.string(),
-	block_height: z.number(),
-	tx_offset: z.number(),
-	log_offset: z.number(),
-	tx_hash: z.string(),
-	raw_log_topics: z.array(z.string()),
-	sender_contract_decimals: z.number(),
-	sender_name: z.string(),
-	sender_contract_ticker_symbol: z.string(),
-	sender_address: z.string(),
-	sender_address_label: z.string(),
-	sender_logo_url: z.string(),
-	supports_erc: z.array(z.string()),
-	sender_factory_address: z.string(),
-	raw_log_data: z.string(),
-	decoded: z.object({
-		name: z.string(),
-		signature: z.string(),
-		params: z.array(
-			z.object({
-				name: z.string(),
-				type: z.string(),
-				indexed: z.boolean(),
-				decoded: z.boolean(),
-				value: z.string(),
-			}),
-		),
-	}),
-});
-
-const transferSchema = z.array(
-	z.object({
-		from_address: z.string(),
-		to_address: z.string(),
-		value: z.string(),
-		gas_limit: z.number(),
-	}),
-);
-
-const stateChangeSchema = z.object({
-	address: z.string(),
-	balance_before: z.string(),
-	balance_after: z.string(),
-	storage_changes: z.array(
-		z.object({
-			storage_address: z.string(),
-			value_before: z.string(),
-			value_after: z.string(),
-		}),
-	),
-	nonce_before: z.number(),
-	nonce_after: z.number(),
-});
-
-const allChainsResponseItemSchema = z.object({
-	block_height: z.number(),
-	block_signed_at: z.string(),
-	block_hash: z.string(),
-	tx_hash: z.string(),
-	tx_offset: z.number(),
-	miner_address: z.string(),
-	from_address: z.string(),
-	from_address_label: z.string(),
-	to_address: z.string(),
-	to_address_label: z.string(),
-	value: z.string(),
-	value_quote: z.number(),
-	pretty_value_quote: z.string(),
-	gas_offered: z.number(),
-	gas_spent: z.number(),
-	gas_price: z.number(),
-	gas_quote: z.number(),
-	pretty_gas_quote: z.string(),
-	gas_quote_rate: z.number(),
-	fees_paid: z.string(),
-	gas_metadata: allChainsResponseGasMetadata,
-	successful: z.boolean(),
-	chain_id: z.string(),
-	chain_name: z.string(),
-	explorers: z.array(explorerSchema),
-	log_events: z.array(logEventSchema),
-	internal_transfers: transferSchema,
-	state_changes: z.array(stateChangeSchema),
-	input_data: z.object({
-		method_id: z.string(),
-	}),
-});
-
-const allChainsResponseSchema = z.object({
-	updated_at: z.string(),
-	cursor_before: z.string(),
-	cursor_after: z.string(),
-	quote_currency: z.string(),
-	items: z.array(allChainsResponseItemSchema),
-});
-
 /**
  * The Covalent agent
  */
@@ -355,6 +242,23 @@ export class Agent {
 		);
 	}
 
+	/**
+	 * Gets the floor price history for an NFT collection on a specific blockchain.
+	 *
+	 * @param {ChainName} chainName - The blockchain network to query
+	 * @param {Object} params - The parameters for the floor price request
+	 * @param {string} params.contractAddress - The contract address of the NFT collection
+	 * @returns {Promise<z.infer<typeof nftFloorPriceSchema>>} A promise that resolves to the floor price data.
+	 *   The response follows the nftFloorPriceSchema structure which includes:
+	 *   - Contract address
+	 *   - Updated timestamp
+	 *   - Quote currency
+	 *   - Chain information
+	 *   - Array of floor price items with:
+	 *     - Date
+	 *     - Native token details
+	 *     - Floor prices in native and quote currency
+	 */
 	async getNFTFloorPrice(
 		chainName: ChainName,
 		{ contractAddress }: { contractAddress: string },
@@ -376,6 +280,44 @@ export class Agent {
 				}),
 			),
 		);
+	}
+
+	async getTokenApprovals(
+		chainName: ChainName,
+		{ walletAddress }: { walletAddress: string },
+	) {
+		const options = {
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${this.key}`,
+			},
+		};
+
+		return await fetch(
+			`https://api.covalenthq.com/v1/${chainName}/approvals/${walletAddress}/`,
+			options,
+		).then(response => {
+			return response.text();
+		});
+	}
+
+	async getNFTApprovals(
+		chainName: ChainName,
+		{ walletAddress }: { walletAddress: string },
+	) {
+		const options = {
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${this.key}`,
+			},
+		};
+
+		return await fetch(
+			`https://api.covalenthq.com/v1/${chainName}/nft/approvals/${walletAddress}/`,
+			options,
+		).then(response => {
+			return response.text;
+		});
 	}
 
 	/**
