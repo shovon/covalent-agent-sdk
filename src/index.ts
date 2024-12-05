@@ -69,7 +69,7 @@ export class Agent {
 	 * @param chainName The chain to lookup
 	 * @param options  Contains the wallet address and the currency to work with
 	 */
-	async getTokenHoldings(
+	async getSpotBalances(
 		chainName: ChainName,
 		{
 			walletAddress,
