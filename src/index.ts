@@ -13,6 +13,7 @@ import {
 	nftFloorPriceSchema,
 	nftResponseSchema,
 	transactionResponseSchema,
+	transactionSummarySchema,
 } from "./schema";
 
 /**
@@ -148,6 +149,40 @@ export class Agent {
 		}
 
 		return [...holdings].map(([, v]) => v);
+	}
+
+	/**
+	 * Retrieves a transaction summary for a given wallet address on a specified blockchain.
+	 * The summary includes total transaction count, earliest transaction details, gas usage statistics,
+	 * and other relevant metadata.
+	 *
+	 * @param {ChainName} chainName - The name of the blockchain to query
+	 * @param {Object} params - The parameters for the query
+	 * @param {string} params.walletAddress - The wallet address to retrieve the transaction summary for
+	 * @returns {Promise<z.infer<typeof transactionSummarySchema>>} A promise that resolves to the transaction summary data
+	 */
+	async getTransactionSummaryForAddress(
+		chainName: ChainName,
+		{ walletAddress }: { walletAddress: string },
+	) {
+		const options = {
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${this.key}`,
+			},
+		};
+
+		return transactionSummarySchema.parse(
+			await fetch(
+				`https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/transactions_summary/`,
+				options,
+			)
+				.then(response => response.json())
+				.then(j => {
+					console.log(j);
+					return j;
+				}),
+		);
 	}
 
 	/**

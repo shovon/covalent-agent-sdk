@@ -117,3 +117,46 @@ export const nftFloorPriceSchema = z.object({
 	error_message: z.string().nullable(),
 	error_code: z.number().nullable(),
 });
+
+export const transactionSummarySchema = z.object({
+	data: z.object({
+		updated_at: z.string(),
+		address: z.string(),
+		chain_id: z.number(),
+		chain_name: z.string(),
+		items: z
+			.array(
+				z.object({
+					total_count: z.number(),
+					earliest_transaction: z
+						.object({
+							block_signed_at: z.string(),
+							tx_hash: z.string(),
+							tx_detail_link: z.string(),
+						})
+						.nullable(),
+					latest_transaction: z.object({}).nullable(),
+					gas_summary: z
+						.object({
+							total_sent_count: z.number(),
+							total_fees_paid: z.string(),
+							total_gas_quote: z.number(),
+							pretty_total_gas_quote: z.string(),
+							average_gas_quote_per_tx: z.number(),
+							pretty_average_gas_quote_per_tx: z.string(),
+							gas_metadata: z.object({
+								contract_decimals: z.number(),
+								contract_name: z.string(),
+								contract_ticker_symbol: z.string(),
+								contract_address: z.string(),
+								supports_erc: z.array(z.string()),
+								logo_url: z.string(),
+							}),
+						})
+						.optional()
+						.nullable(),
+				}),
+			)
+			.nullable(),
+	}),
+});
