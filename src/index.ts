@@ -151,7 +151,7 @@ export class Agent {
 	 * @param {string} params.walletAddress - The wallet address to retrieve the transaction history for.
 	 * @returns {Promise<any>} A promise that resolves to the transaction history.
 	 */
-	async transactionHistory(
+	async getTransactionsForWallet(
 		chainName: ChainName,
 		{ walletAddress }: { walletAddress: string },
 	) {
