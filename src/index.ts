@@ -1,4 +1,8 @@
-import { ChainName } from "@covalenthq/client-sdk";
+type BASE_MAINNET = "base-mainnet";
+type BASE_SEPOLIA_TESTNET = "base-sepolia-testnet";
+type BASE_TESTNET = "base-testnet";
+
+type ChainName = BASE_MAINNET | BASE_SEPOLIA_TESTNET | BASE_TESTNET;
 
 import {
 	historicalTokenBalanceSchema,
