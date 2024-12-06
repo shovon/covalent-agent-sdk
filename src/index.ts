@@ -1,6 +1,4 @@
-import { ChainName, Quote } from "@covalenthq/client-sdk";
-
-export { ChainName } from "@covalenthq/client-sdk";
+import { ChainName } from "@covalenthq/client-sdk";
 
 import {
 	historicalTokenBalanceSchema,
@@ -13,6 +11,24 @@ import {
 	transactionsForWalletSchema,
 	transactionSummarySchema,
 } from "./schema";
+
+export type Currency =
+	| "USD"
+	| "CAD"
+	| "EUR"
+	| "SGD"
+	| "INR"
+	| "JPY"
+	| "VND"
+	| "CNY"
+	| "KRW"
+	| "RUB"
+	| "TRY"
+	| "NGN"
+	| "ARS"
+	| "AUD"
+	| "CHF"
+	| "GBP";
 
 /**
  * The Covalent agent
@@ -86,7 +102,7 @@ export class Agent {
 			currency,
 		}: {
 			walletAddress: string;
-			currency: Quote;
+			currency: Currency;
 		},
 	) {
 		const historicals = await this.getHistoricalTokenBalancesForAddress(
@@ -103,7 +119,7 @@ export class Agent {
 			Exclude<Exclude<typeof historicals, null>["items"], null>[number] & {
 				value: {
 					amount: number;
-					currency: Quote;
+					currency: Currency;
 				};
 			}
 		>();
@@ -325,6 +341,22 @@ export class Agent {
 		);
 	}
 
+	/**
+	 * Gets the token approvals for a given wallet address on a specific chain.
+	 *
+	 * @param {ChainName} chainName - The blockchain network to query
+	 * @param {Object} params - The parameters for the token approvals request
+	 * @param {string} params.walletAddress - The wallet address to check approvals for
+	 * @returns {Promise<z.infer<typeof tokenApprovalSchema>>} A promise that resolves to the token approvals data.
+	 *   The response follows the tokenApprovalSchema structure which includes:
+	 *   - Updated timestamp
+	 *   - Chain information
+	 *   - Array of approval items with:
+	 *     - Contract details
+	 *     - Approved addresses
+	 *     - Approval amounts
+	 *     - Transaction details
+	 */
 	async getTokenApprovals(
 		chainName: ChainName,
 		{ walletAddress }: { walletAddress: string },
@@ -346,6 +378,14 @@ export class Agent {
 		);
 	}
 
+	/**
+	 * Gets the token approvals for a given wallet address on a specific chain.
+	 *
+	 * @param {ChainName} chainName - The blockchain network to query
+	 * @param {Object} params - The parameters for the token approvals request
+	 * @param {string} params.walletAddress - The wallet address to check approvals for
+	 * @returns {Promise<any>} A promise that resolves to the token approvals data
+	 */
 	async getNFTApprovals(
 		chainName: ChainName,
 		{ walletAddress }: { walletAddress: string },
@@ -378,7 +418,10 @@ export class Agent {
 	 */
 	async getQuote(
 		chainName: ChainName,
-		{ contractAddress, currency }: { contractAddress: string; currency: Quote },
+		{
+			contractAddress,
+			currency,
+		}: { contractAddress: string; currency: Currency },
 	) {
 		const options = {
 			method: "GET",
