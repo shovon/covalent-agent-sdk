@@ -377,11 +377,7 @@ export class Agent {
 			await fetch(
 				`https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/transactions_summary/`,
 				options,
-			)
-				.then(response => response.json())
-				.then(j => {
-					return j;
-				}),
+			).then(response => response.json()),
 		).data;
 	}
 
@@ -437,16 +433,14 @@ export class Agent {
 			headers: this.headers,
 		};
 
-		return await fetch(
-			`https://api.covalenthq.com/v1/allchains/transactions/?addresses=${encodeURIComponent(
-				walletAddress,
-			)}`,
-			options,
-		).then(async response => {
-			return baseDataSchema(transactionResponseSchema).parse(
-				await response.json(),
-			).data;
-		});
+		return baseDataSchema(transactionResponseSchema).parse(
+			await fetch(
+				`https://api.covalenthq.com/v1/allchains/transactions/?addresses=${encodeURIComponent(
+					walletAddress,
+				)}`,
+				options,
+			).then(async response => response.json()),
+		).data;
 	}
 
 	/**
@@ -511,9 +505,7 @@ export class Agent {
 			await fetch(
 				`https://api.covalenthq.com/v1/${chainName}/nft_market/${contractAddress}/floor_price/`,
 				options,
-			).then(response => {
-				return response.json();
-			}),
+			).then(response => response.json()),
 		).data;
 	}
 
@@ -619,9 +611,7 @@ export class Agent {
 					!!params ? `?${params}` : ""
 				}`,
 				options,
-			).then(response => {
-				return response.json();
-			}),
+			).then(response => response.json()),
 		).data;
 	}
 
