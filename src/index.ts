@@ -179,7 +179,6 @@ export class Agent {
 			)
 				.then(response => response.json())
 				.then(j => {
-					console.log(j);
 					return j;
 				}),
 		);
@@ -332,7 +331,7 @@ export class Agent {
 			`https://api.covalenthq.com/v1/${chainName}/approvals/${walletAddress}/`,
 			options,
 		).then(response => {
-			return response.text();
+			return response.json();
 		});
 	}
 
@@ -351,7 +350,7 @@ export class Agent {
 			`https://api.covalenthq.com/v1/${chainName}/nft/approvals/${walletAddress}/`,
 			options,
 		).then(response => {
-			return response.text;
+			return response.json;
 		});
 	}
 

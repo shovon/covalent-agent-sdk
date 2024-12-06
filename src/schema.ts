@@ -160,3 +160,47 @@ export const transactionSummarySchema = z.object({
 			.nullable(),
 	}),
 });
+
+export const tokenApprovalSchema = z.object({
+	data: z.object({
+		address: z.string(),
+		updated_at: z.string(),
+		quote_currency: z.string(),
+		chain_id: z.number(),
+		chain_name: z.string(),
+		items: z.array(
+			z.object({
+				token_address: z.string(),
+				token_address_label: z.string(),
+				ticker_symbol: z.string(),
+				contract_decimals: z.number(),
+				logo_url: z.string(),
+				quote_rate: z.number(),
+				balance: z.string(),
+				balance_quote: z.number(),
+				pretty_balance_quote: z.string(),
+				value_at_risk: z.string(),
+				value_at_risk_quote: z.number(),
+				pretty_value_at_risk_quote: z.string(),
+				spenders: z.array(
+					z.object({
+						block_height: z.number(),
+						tx_offset: z.number(),
+						log_offset: z.number(),
+						block_signed_at: z.string(),
+						tx_hash: z.string(),
+						spender_address: z.string(),
+						spender_address_label: z.string(),
+						allowance: z.string(),
+						allowance_quote: z.number(),
+						pretty_allowance_quote: z.string(),
+						value_at_risk: z.string(),
+						value_at_risk_quote: z.number(),
+						pretty_value_at_risk_quote: z.string(),
+						risk_factor: z.string(),
+					}),
+				),
+			}),
+		),
+	}),
+});
