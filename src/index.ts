@@ -22,6 +22,7 @@ type BNBChain =
 export type ChainName = BaseChain | BNBChain;
 
 import {
+	historicalPortfolioSchema,
 	historicalTokenBalanceSchema,
 	nftApprovalsSchema,
 	nftFloorPriceSchema,
@@ -63,6 +64,13 @@ export class Agent {
 		private key: string = process.env["AGENT_SEMANTIC_SDK_API_KEY"] ?? "",
 	) {}
 
+	private get headers() {
+		return {
+			Authorization: `Bearer ${this.key}`,
+			"User-Agent": `AgentSemanticSDK/${require("../package.json").version}`,
+		};
+	}
+
 	/**
 	 * The total balance of an ERC20 token that belongs to a given WalletAddress
 	 * @param chainName The chain to lookup
@@ -100,9 +108,7 @@ export class Agent {
 	) {
 		const options = {
 			method: "GET",
-			headers: {
-				Authorization: `Bearer ${this.key}`,
-			},
+			headers: this.headers,
 		};
 
 		return historicalTokenBalanceSchema.parse(
@@ -312,6 +318,40 @@ export class Agent {
 	}
 
 	/**
+	 * Retrieves the historical portfolio data for a given wallet address on a specified blockchain.
+	 * This includes detailed information about token holdings and their value changes over time.
+	 *
+	 * @param {ChainName} chainName - The blockchain network to query
+	 * @param {Object} params - The parameters for the portfolio request
+	 * @param {string} params.walletAddress - The wallet address to retrieve the portfolio for
+	 * @returns {Promise<z.infer<typeof historicalPortfolioSchema>>} A promise that resolves to the historical portfolio data.
+	 *   The response follows the historicalPortfolioSchema structure which includes:
+	 *   - Wallet address
+	 *   - Chain information
+	 *   - Quote currency
+	 *   - Array of token holdings with:
+	 *     - Contract details (address, decimals, name, symbol)
+	 *     - Historical holdings data (timestamps, balances, quotes)
+	 */
+
+	async getHistoricalPortfolioForWalletAddress(
+		chainName: ChainName,
+		{ walletAddress }: { walletAddress: string },
+	) {
+		const options = {
+			method: "GET",
+			headers: this.headers,
+		};
+
+		return historicalPortfolioSchema.parse(
+			await fetch(
+				`https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/portfolio_v2/`,
+				options,
+			).then(response => response.json()),
+		);
+	}
+
+	/**
 	 * Retrieves a transaction summary for a given wallet address on a specified blockchain.
 	 * The summary includes total transaction count, earliest transaction details, gas usage statistics,
 	 * and other relevant metadata.
@@ -327,9 +367,7 @@ export class Agent {
 	) {
 		const options = {
 			method: "GET",
-			headers: {
-				Authorization: `Bearer ${this.key}`,
-			},
+			headers: this.headers,
 		};
 
 		return transactionSummarySchema.parse(
@@ -364,9 +402,7 @@ export class Agent {
 	) {
 		const options = {
 			method: "GET",
-			headers: {
-				Authorization: `Bearer ${this.key}`,
-			},
+			headers: this.headers,
 		};
 
 		return transactionsForWalletSchema.parse(
@@ -393,9 +429,7 @@ export class Agent {
 	async getAllChainsTransactions(walletAddress: string) {
 		const options = {
 			method: "GET",
-			headers: {
-				Authorization: `Bearer ${this.key}`,
-			},
+			headers: this.headers,
 		};
 
 		return await fetch(
@@ -429,9 +463,7 @@ export class Agent {
 	) {
 		const options = {
 			method: "GET",
-			headers: {
-				Authorization: `Bearer ${this.key}`,
-			},
+			headers: this.headers,
 		};
 
 		return nftResponseSchema.parse(
@@ -467,9 +499,7 @@ export class Agent {
 	) {
 		const options = {
 			method: "GET",
-			headers: {
-				Authorization: `Bearer ${this.key}`,
-			},
+			headers: this.headers,
 		};
 
 		return nftFloorPriceSchema.parse(
@@ -506,9 +536,7 @@ export class Agent {
 	) {
 		const options = {
 			method: "GET",
-			headers: {
-				Authorization: `Bearer ${this.key}`,
-			},
+			headers: this.headers,
 		};
 
 		return tokenApprovalSchema.parse(
@@ -535,9 +563,7 @@ export class Agent {
 	) {
 		const options = {
 			method: "GET",
-			headers: {
-				Authorization: `Bearer ${this.key}`,
-			},
+			headers: this.headers,
 		};
 
 		return nftApprovalsSchema.parse(
@@ -575,9 +601,7 @@ export class Agent {
 	) {
 		const options = {
 			method: "GET",
-			headers: {
-				Authorization: `Bearer ${this.key}`,
-			},
+			headers: this.headers,
 		};
 
 		const obj: Record<string, string> = {};

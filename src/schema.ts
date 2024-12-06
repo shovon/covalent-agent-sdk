@@ -555,3 +555,36 @@ export const transactionsForWalletSchema = z.object({
 		}),
 	),
 });
+
+export const historicalPortfolioSchema = z.object({
+	data: z.object({
+		address: z.string(),
+		updated_at: z.string(),
+		quote_currency: z.string(),
+		chain_id: z.number(),
+		chain_name: z.string(),
+		items: z.array(
+			z.object({
+				contract_address: z.string(),
+				contract_decimals: z.number(),
+				contract_name: z.string(),
+				contract_ticker_symbol: z.string(),
+				logo_url: z.string(),
+				holdings: z.array(
+					z.object({
+						quote_rate: z.number().nullable().optional(),
+						timestamp: z.string(),
+						close: z.object({
+							balance: z.string(),
+							quote: z.number(),
+							pretty_quote: z.string(),
+						}),
+						high: z.object({}),
+						low: z.object({}),
+						open: z.object({}),
+					}),
+				),
+			}),
+		),
+	}),
+});
