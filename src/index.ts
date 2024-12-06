@@ -169,6 +169,126 @@ export class Agent {
 	}
 
 	/**
+	 * Gets the token holdings for a given wallet addres on a chain.
+	 * @param chainName The chain to lookup
+	 * @param options  Contains the wallet address and the currency to work with
+	 */
+	async getGrowth(
+		chainName: ChainName,
+		{
+			walletAddress,
+			currency,
+		}: {
+			walletAddress: string;
+			currency: Currency;
+		},
+	) {
+		const historicals = await this.getHistoricalTokenBalancesForAddress(
+			chainName,
+			{
+				walletAddress,
+			},
+		);
+
+		// TODO: NAV should get a breakdown by asset.
+
+		const holdings = new Map<
+			string,
+			Exclude<Exclude<typeof historicals, null>["items"], null>[number] & {
+				value: {
+					amount: number;
+					currency: Currency;
+				};
+				valueAtPurchase: {
+					amount: number;
+					currency: Currency;
+				};
+			}
+		>();
+
+		for (const historical of historicals?.items ?? []) {
+			if (!historical.contract_address) continue;
+			if (!historical.contract_decimals) continue;
+			if (!historical.balance) continue;
+
+			const holding = {
+				...historical,
+				value: {
+					amount: 0,
+					currency: currency,
+				},
+				valueAtPurchase: {
+					amount: 0,
+					currency: currency,
+				},
+			};
+
+			holdings.set(historical.contract_address, holding);
+
+			const currentPrice = await this.getQuote(chainName, {
+				contractAddress: historical.contract_address,
+				currency,
+			});
+			if (!currentPrice) continue;
+
+			const previousPrice = await this.getQuote(chainName, {
+				contractAddress: historical.contract_address,
+				currency,
+				from: (() => {
+					const date = new Date(historical.last_transferred_at);
+					date.setDate(date.getDate() - 1);
+					return date.toISOString();
+				})(),
+				to: historical.last_transferred_at,
+			});
+			{
+				let total = 0;
+				let count = 0;
+
+				for (const quote of currentPrice) {
+					for (const item of quote.items ?? []) {
+						if (item.price === null || item.price === undefined) continue;
+						total += item.price;
+						count++;
+					}
+				}
+
+				// TODO: determine if it's better to conver the numberator to a number or
+				//   or… the denominator to BigInt
+				holding.value.amount =
+					count === 0
+						? 0
+						: (Number(historical.balance) /
+								10 ** historical.contract_decimals) *
+						  (total / count);
+			}
+			{
+				let total = 0;
+				let count = 0;
+
+				for (const quote of previousPrice) {
+					for (const item of quote.items ?? []) {
+						if (item.price === null || item.price === undefined) continue;
+						total += item.price;
+						count++;
+					}
+				}
+
+				// TODO: determine if it's better to conver the numberator to a number or
+				//   or… the denominator to BigInt
+				holding.valueAtPurchase.amount =
+					count === 0
+						? 0
+						: (Number(historical.balance) /
+								10 ** historical.contract_decimals) *
+						  (total / count);
+			}
+		}
+
+		return [...holdings].map(([, v]) => v);
+	}
+
+	/**
 	 * Retrieves a transaction summary for a given wallet address on a specified blockchain.
 	 * The summary includes total transaction count, earliest transaction details, gas usage statistics,
 	 * and other relevant metadata.
@@ -421,7 +541,14 @@ export class Agent {
 		{
 			contractAddress,
 			currency,
-		}: { contractAddress: string; currency: Currency },
+			from,
+			to,
+		}: {
+			contractAddress: string;
+			currency: Currency;
+			from?: string;
+			to?: string;
+		},
 	) {
 		const options = {
 			method: "GET",
@@ -430,9 +557,17 @@ export class Agent {
 			},
 		};
 
+		const obj: Record<string, string> = {};
+		if (from) obj["from"] = from;
+		if (to) obj["to"] = to;
+
+		const params = new URLSearchParams(obj).toString();
+
 		return quoteSchema.parse(
 			await fetch(
-				`https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/${chainName}/${currency}/${contractAddress}/`,
+				`https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/${chainName}/${currency}/${contractAddress}/${
+					!!params ? `?${params}` : ""
+				}`,
 				options,
 			).then(response => {
 				return response.json();
