@@ -1,18 +1,16 @@
 import { z } from "zod";
+import { memoizeWeakMap } from "./utils";
 
-const explorerSchema = z.object({
-	label: z.string(),
-	url: z.string(),
-});
-
-const gasMetadataSchema = z.object({
-	contract_decimals: z.number(),
-	contract_name: z.string(),
-	contract_ticker_symbol: z.string(),
-	contract_address: z.string(),
-	supports_erc: z.array(z.string()),
-	logo_url: z.string(),
-});
+export const baseDataSchema = memoizeWeakMap(
+	<T extends z.ZodTypeAny>(valueSchema: T) => {
+		return z.object({
+			data: valueSchema,
+			error: z.boolean().optional().nullable(),
+			error_message: z.string().nullable().optional(),
+			error_code: z.number().nullable().optional(),
+		});
+	},
+);
 
 const transactionItemSchema = z.object({
 	block_height: z.number(),
@@ -31,10 +29,22 @@ const transactionItemSchema = z.object({
 	successful: z.boolean(),
 	chain_id: z.string(),
 	chain_name: z.string(),
-	explorers: z.array(explorerSchema),
+	explorers: z.array(
+		z.object({
+			label: z.string(),
+			url: z.string(),
+		}),
+	),
 	from_address_label: z.string().nullable(),
 	to_address_label: z.string().nullable(),
-	gas_metadata: gasMetadataSchema,
+	gas_metadata: z.object({
+		contract_decimals: z.number(),
+		contract_name: z.string(),
+		contract_ticker_symbol: z.string(),
+		contract_address: z.string(),
+		supports_erc: z.array(z.string()),
+		logo_url: z.string(),
+	}),
 	gas_quote_rate: z.number(),
 	gas_quote: z.number(),
 	pretty_gas_quote: z.string(),
@@ -42,190 +52,131 @@ const transactionItemSchema = z.object({
 	pretty_value_quote: z.string(),
 });
 
+// TODO: rather than the schema repeatedly being wrapped in some {data:schema},
+//   just have the schema be the schema.
 export const transactionResponseSchema = z.object({
-	data: z.object({
-		updated_at: z.string(),
-		cursor_before: z.string(),
-		cursor_after: z.string(),
-		quote_currency: z.string(),
-		items: z.array(transactionItemSchema),
-	}),
-	error: z.boolean(),
-	error_message: z.string().nullable(),
-	error_code: z.number().nullable(),
+	updated_at: z.string(),
+	cursor_before: z.string(),
+	cursor_after: z.string(),
+	quote_currency: z.string(),
+	items: z.array(transactionItemSchema),
 });
 
 export const nftResponseSchema = z.object({
-	data: z.object({
-		updated_at: z.string(),
-		items: z.array(
-			z.object({
-				contract_name: z.string(),
-				contract_ticker_symbol: z.string(),
-				contract_address: z.string(),
-				supports_erc: z.array(z.string()),
-				is_spam: z.boolean(),
-				balance: z.string(),
-				balance_24h: z.string(),
-				type: z.string(),
-				floor_price_quote: z.number().nullable(),
-				pretty_floor_price_quote: z.string().nullable(),
-				floor_price_native_quote: z.number().nullable(),
-				nft_data: z
-					.array(
-						z.object({
-							token_id: z.string(),
-							token_balance: z.string(),
-							token_url: z.string().nullable(),
-							original_owner: z.string().nullable(),
-							current_owner: z.string().nullable(),
-							external_data: z.unknown(),
-							asset_cached: z.boolean(),
-							image_cached: z.boolean(),
-						}),
-					)
-					.nullable(),
-				last_transfered_at: z.string(),
-			}),
-		),
-		address: z.string(),
-	}),
-	error: z.boolean(),
-	error_message: z.string().nullable(),
-	error_code: z.number().nullable(),
-});
-
-export const nftFloorPriceSchema = z.object({
-	data: z.object({
-		address: z.string(),
-		updated_at: z.string(),
-		quote_currency: z.string(),
-		chain_id: z.number(),
-		chain_name: z.string(),
-		items: z.array(
-			z.object({
-				date: z.string(),
-				native_ticker_symbol: z.string(),
-				native_name: z.string(),
-				floor_price_native_quote: z.number(),
-				floor_price_quote: z.number(),
-				pretty_floor_price_quote: z.string(),
-			}),
-		),
-	}),
-	error: z.boolean(),
-	error_message: z.string().nullable(),
-	error_code: z.number().nullable(),
-});
-
-export const transactionSummarySchema = z.object({
-	data: z.object({
-		updated_at: z.string(),
-		address: z.string(),
-		chain_id: z.number(),
-		chain_name: z.string(),
-		items: z
-			.array(
-				z.object({
-					total_count: z.number(),
-					earliest_transaction: z
-						.object({
-							block_signed_at: z.string(),
-							tx_hash: z.string(),
-							tx_detail_link: z.string(),
-						})
-						.nullable(),
-					latest_transaction: z.object({}).nullable(),
-					gas_summary: z
-						.object({
-							total_sent_count: z.number(),
-							total_fees_paid: z.string(),
-							total_gas_quote: z.number(),
-							pretty_total_gas_quote: z.string(),
-							average_gas_quote_per_tx: z.number(),
-							pretty_average_gas_quote_per_tx: z.string(),
-							gas_metadata: z.object({
-								contract_decimals: z.number(),
-								contract_name: z.string(),
-								contract_ticker_symbol: z.string(),
-								contract_address: z.string(),
-								supports_erc: z.array(z.string()),
-								logo_url: z.string(),
-							}),
-						})
-						.optional()
-						.nullable(),
-				}),
-			)
-			.nullable(),
-	}),
-});
-
-export const tokenApprovalSchema = z.object({
-	data: z.object({
-		address: z.string(),
-		updated_at: z.string(),
-		quote_currency: z.string(),
-		chain_id: z.number(),
-		chain_name: z.string(),
-		items: z.array(
-			z
-				.object({
-					token_address: z.string(),
-					token_address_label: z.string(),
-					ticker_symbol: z.string(),
-					contract_decimals: z.number(),
-					logo_url: z.string(),
-					quote_rate: z.number(),
-					balance: z.string(),
-					balance_quote: z.number(),
-					pretty_balance_quote: z.string(),
-					value_at_risk: z.string(),
-					value_at_risk_quote: z.number(),
-					pretty_value_at_risk_quote: z.string(),
-					spenders: z.array(
-						z.object({
-							block_height: z.number(),
-							tx_offset: z.number(),
-							log_offset: z.number(),
-							block_signed_at: z.string(),
-							tx_hash: z.string(),
-							spender_address: z.string().nullable().optional(),
-							spender_address_label: z.string().nullable().optional(),
-							allowance: z.string().nullable().optional(),
-							allowance_quote: z.number().nullable().optional(),
-							pretty_allowance_quote: z.string().nullable().optional(),
-							value_at_risk: z.string(),
-							value_at_risk_quote: z.number(),
-							pretty_value_at_risk_quote: z.string(),
-							risk_factor: z.string(),
-						}),
-					),
-				})
-				.nullable()
-				.optional(),
-		),
-	}),
-});
-
-export const nftApprovalsSchema = z.object({
-	data: z.object({
-		address: z.string(),
-		updated_at: z.string(),
-		chain_id: z.number(),
-		chain_name: z.string(),
-		items: z.array(
-			z.object({
-				contract_address: z.string(),
-				contract_address_label: z.string(),
-				contract_ticker_symbol: z.string(),
-				supports_erc: z.array(z.string()),
-				token_balances: z.array(
+	updated_at: z.string(),
+	items: z.array(
+		z.object({
+			contract_name: z.string(),
+			contract_ticker_symbol: z.string(),
+			contract_address: z.string(),
+			supports_erc: z.array(z.string()),
+			is_spam: z.boolean(),
+			balance: z.string(),
+			balance_24h: z.string(),
+			type: z.string(),
+			floor_price_quote: z.number().nullable(),
+			pretty_floor_price_quote: z.string().nullable(),
+			floor_price_native_quote: z.number().nullable(),
+			nft_data: z
+				.array(
 					z.object({
 						token_id: z.string(),
 						token_balance: z.string(),
+						token_url: z.string().nullable(),
+						original_owner: z.string().nullable(),
+						current_owner: z.string().nullable(),
+						external_data: z.unknown(),
+						asset_cached: z.boolean(),
+						image_cached: z.boolean(),
 					}),
-				),
+				)
+				.nullable(),
+			last_transfered_at: z.string(),
+		}),
+	),
+	address: z.string(),
+});
+
+export const nftFloorPriceSchema = z.object({
+	address: z.string(),
+	updated_at: z.string(),
+	quote_currency: z.string(),
+	chain_id: z.number(),
+	chain_name: z.string(),
+	items: z.array(
+		z.object({
+			date: z.string(),
+			native_ticker_symbol: z.string(),
+			native_name: z.string(),
+			floor_price_native_quote: z.number(),
+			floor_price_quote: z.number(),
+			pretty_floor_price_quote: z.string(),
+		}),
+	),
+});
+
+export const transactionSummarySchema = z.object({
+	updated_at: z.string(),
+	address: z.string(),
+	chain_id: z.number(),
+	chain_name: z.string(),
+	items: z
+		.array(
+			z.object({
+				total_count: z.number(),
+				earliest_transaction: z
+					.object({
+						block_signed_at: z.string(),
+						tx_hash: z.string(),
+						tx_detail_link: z.string(),
+					})
+					.nullable(),
+				latest_transaction: z.object({}).nullable(),
+				gas_summary: z
+					.object({
+						total_sent_count: z.number(),
+						total_fees_paid: z.string(),
+						total_gas_quote: z.number(),
+						pretty_total_gas_quote: z.string(),
+						average_gas_quote_per_tx: z.number(),
+						pretty_average_gas_quote_per_tx: z.string(),
+						gas_metadata: z.object({
+							contract_decimals: z.number(),
+							contract_name: z.string(),
+							contract_ticker_symbol: z.string(),
+							contract_address: z.string(),
+							supports_erc: z.array(z.string()),
+							logo_url: z.string(),
+						}),
+					})
+					.optional()
+					.nullable(),
+			}),
+		)
+		.nullable(),
+});
+
+export const tokenApprovalSchema = z.object({
+	address: z.string(),
+	updated_at: z.string(),
+	quote_currency: z.string(),
+	chain_id: z.number(),
+	chain_name: z.string(),
+	items: z.array(
+		z
+			.object({
+				token_address: z.string(),
+				token_address_label: z.string(),
+				ticker_symbol: z.string(),
+				contract_decimals: z.number(),
+				logo_url: z.string(),
+				quote_rate: z.number(),
+				balance: z.string(),
+				balance_quote: z.number(),
+				pretty_balance_quote: z.string(),
+				value_at_risk: z.string(),
+				value_at_risk_quote: z.number(),
+				pretty_value_at_risk_quote: z.string(),
 				spenders: z.array(
 					z.object({
 						block_height: z.number(),
@@ -233,121 +184,148 @@ export const nftApprovalsSchema = z.object({
 						log_offset: z.number(),
 						block_signed_at: z.string(),
 						tx_hash: z.string(),
-						spender_address: z.string().nullable(),
-						spender_address_label: z.string().nullable(),
-						allowance: z.string(),
-						token_ids_approved: z.string(),
+						spender_address: z.string().nullable().optional(),
+						spender_address_label: z.string().nullable().optional(),
+						allowance: z.string().nullable().optional(),
+						allowance_quote: z.number().nullable().optional(),
+						pretty_allowance_quote: z.string().nullable().optional(),
+						value_at_risk: z.string(),
+						value_at_risk_quote: z.number(),
+						pretty_value_at_risk_quote: z.string(),
+						risk_factor: z.string(),
 					}),
 				),
-			}),
-		),
-	}),
-	error: z.boolean(),
-	error_message: z.string().nullable(),
-	error_code: z.number().nullable(),
+			})
+			.nullable()
+			.optional(),
+	),
+});
+
+export const nftApprovalsSchema = z.object({
+	address: z.string(),
+	updated_at: z.string(),
+	chain_id: z.number(),
+	chain_name: z.string(),
+	items: z.array(
+		z.object({
+			contract_address: z.string(),
+			contract_address_label: z.string(),
+			contract_ticker_symbol: z.string(),
+			supports_erc: z.array(z.string()),
+			token_balances: z.array(
+				z.object({
+					token_id: z.string(),
+					token_balance: z.string(),
+				}),
+			),
+			spenders: z.array(
+				z.object({
+					block_height: z.number(),
+					tx_offset: z.number(),
+					log_offset: z.number(),
+					block_signed_at: z.string(),
+					tx_hash: z.string(),
+					spender_address: z.string().nullable(),
+					spender_address_label: z.string().nullable(),
+					allowance: z.string(),
+					token_ids_approved: z.string(),
+				}),
+			),
+		}),
+	),
 });
 
 export const historicalTokenBalanceSchema = z.object({
-	data: z.object({
-		address: z.string(),
-		updated_at: z.string(),
-		next_update_at: z.string(),
-		quote_currency: z.string(),
-		chain_id: z.number(),
-		chain_name: z.string(),
-		items: z.array(
-			z.object({
-				contract_decimals: z.number(),
-				contract_name: z.string(),
-				contract_ticker_symbol: z.string(),
-				contract_address: z.string(),
-				supports_erc: z.array(z.string()).nullable(),
-				logo_url: z.string(),
-				block_height: z.number(),
-				last_transferred_block_height: z.number(),
-				contract_display_name: z.string().nullable(),
-				logo_urls: z
-					.object({
-						token_logo_url: z.string(),
-						protocol_logo_url: z.string().nullable(),
-						chain_logo_url: z.string(),
-					})
-					.nullable(),
-				last_transferred_at: z.string(),
-				native_token: z.boolean(),
-				type: z.string(),
-				is_spam: z.boolean(),
-				balance: z.string().transform(BigInt),
-				quote_rate: z.number().nullable(),
-				quote: z.number().nullable(),
-				pretty_quote: z.string().nullable(),
-				protocol_metadata: z.unknown().nullable(),
-				nft_data: z.unknown().nullable(),
-			}),
-		),
-		pagination: z.unknown().nullable(),
-	}),
-	error: z.boolean(),
-	error_message: z.string().nullable(),
-	error_code: z.number().nullable(),
-});
-
-export const quoteSchema = z.object({
-	data: z.array(
+	address: z.string(),
+	updated_at: z.string(),
+	next_update_at: z.string(),
+	quote_currency: z.string(),
+	chain_id: z.number(),
+	chain_name: z.string(),
+	items: z.array(
 		z.object({
 			contract_decimals: z.number(),
 			contract_name: z.string(),
 			contract_ticker_symbol: z.string(),
 			contract_address: z.string(),
-			supports_erc: z.array(z.string()),
+			supports_erc: z.array(z.string()).nullable(),
 			logo_url: z.string(),
-			update_at: z.string(),
-			quote_currency: z.string(),
-			logo_urls: z.object({
-				token_logo_url: z.string(),
-				protocol_logo_url: z.string().nullable(),
-				chain_logo_url: z.string(),
-			}),
-			prices: z.array(
-				z.object({
-					contract_metadata: z
-						.object({
-							contract_decimals: z.number(),
-							contract_name: z.string(),
-							contract_ticker_symbol: z.string(),
-							contract_address: z.string(),
-							supports_erc: z.array(z.string()).nullable().optional(),
-							logo_url: z.string(),
-						})
-						.nullable(),
-					date: z.string(),
-					price: z.number().nullable().optional(),
-					pretty_price: z.string().nullable().optional(),
-				}),
-			),
-			items: z.array(
-				z.object({
-					contract_metadata: z
-						.object({
-							contract_decimals: z.number(),
-							contract_name: z.string(),
-							contract_ticker_symbol: z.string(),
-							contract_address: z.string(),
-							supports_erc: z.array(z.string()).nullable().optional(),
-							logo_url: z.string(),
-						})
-						.nullable(),
-					date: z.string(),
-					price: z.number().nullable().optional(),
-					pretty_price: z.string().nullable().optional(),
-				}),
-			),
+			block_height: z.number(),
+			last_transferred_block_height: z.number(),
+			contract_display_name: z.string().nullable(),
+			logo_urls: z
+				.object({
+					token_logo_url: z.string(),
+					protocol_logo_url: z.string().nullable(),
+					chain_logo_url: z.string(),
+				})
+				.nullable(),
+			last_transferred_at: z.string(),
+			native_token: z.boolean(),
+			type: z.string(),
+			is_spam: z.boolean(),
+			balance: z.string().transform(BigInt),
+			quote_rate: z.number().nullable(),
+			quote: z.number().nullable(),
+			pretty_quote: z.string().nullable(),
+			protocol_metadata: z.unknown().nullable(),
+			nft_data: z.unknown().nullable(),
 		}),
 	),
-	error: z.boolean(),
-	error_message: z.string().nullable(),
-	error_code: z.number().nullable(),
+	pagination: z.unknown().nullable(),
 });
+
+export const quoteSchema = z.array(
+	z.object({
+		contract_decimals: z.number(),
+		contract_name: z.string(),
+		contract_ticker_symbol: z.string(),
+		contract_address: z.string(),
+		supports_erc: z.array(z.string()),
+		logo_url: z.string(),
+		update_at: z.string(),
+		quote_currency: z.string(),
+		logo_urls: z.object({
+			token_logo_url: z.string(),
+			protocol_logo_url: z.string().nullable(),
+			chain_logo_url: z.string(),
+		}),
+		prices: z.array(
+			z.object({
+				contract_metadata: z
+					.object({
+						contract_decimals: z.number(),
+						contract_name: z.string(),
+						contract_ticker_symbol: z.string(),
+						contract_address: z.string(),
+						supports_erc: z.array(z.string()).nullable().optional(),
+						logo_url: z.string(),
+					})
+					.nullable(),
+				date: z.string(),
+				price: z.number().nullable().optional(),
+				pretty_price: z.string().nullable().optional(),
+			}),
+		),
+		items: z.array(
+			z.object({
+				contract_metadata: z
+					.object({
+						contract_decimals: z.number(),
+						contract_name: z.string(),
+						contract_ticker_symbol: z.string(),
+						contract_address: z.string(),
+						supports_erc: z.array(z.string()).nullable().optional(),
+						logo_url: z.string(),
+					})
+					.nullable(),
+				date: z.string(),
+				price: z.number().nullable().optional(),
+				pretty_price: z.string().nullable().optional(),
+			}),
+		),
+	}),
+);
 
 export const transactionsForWalletSchema = z.object({
 	address: z.string(),
@@ -557,38 +535,32 @@ export const transactionsForWalletSchema = z.object({
 });
 
 export const historicalPortfolioSchema = z.object({
-	data: z.object({
-		address: z.string(),
-		updated_at: z.string(),
-		quote_currency: z.string(),
-		chain_id: z.number(),
-		chain_name: z.string(),
-		items: z.array(
-			z.object({
-				contract_address: z.string(),
-				contract_decimals: z.number(),
-				contract_name: z.string(),
-				contract_ticker_symbol: z.string(),
-				logo_url: z.string(),
-				holdings: z.array(
-					z.object({
-						quote_rate: z.number().nullable().optional(),
-						timestamp: z.string(),
-						close: z.object({
-							balance: z.string(),
-							quote: z.number(),
-							pretty_quote: z.string(),
-						}),
-						high: z.object({}),
-						low: z.object({}),
-						open: z.object({}),
+	address: z.string(),
+	updated_at: z.string(),
+	quote_currency: z.string(),
+	chain_id: z.number(),
+	chain_name: z.string(),
+	items: z.array(
+		z.object({
+			contract_address: z.string(),
+			contract_decimals: z.number(),
+			contract_name: z.string(),
+			contract_ticker_symbol: z.string(),
+			logo_url: z.string(),
+			holdings: z.array(
+				z.object({
+					quote_rate: z.number().nullable().optional(),
+					timestamp: z.string(),
+					close: z.object({
+						balance: z.string(),
+						quote: z.number(),
+						pretty_quote: z.string(),
 					}),
-				),
-			}),
-		),
-	}),
+					high: z.object({}),
+					low: z.object({}),
+					open: z.object({}),
+				}),
+			),
+		}),
+	),
 });
-
-type HistoricalPortfolio = z.infer<typeof historicalPortfolioSchema>;
-
-type Holdings = HistoricalPortfolio["data"]["items"][number]["holdings"];

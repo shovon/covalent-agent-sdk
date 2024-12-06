@@ -24,6 +24,7 @@ type BNBChain =
 export type ChainName = BaseChain | BNBChain;
 
 import {
+	baseDataSchema,
 	historicalPortfolioSchema,
 	historicalTokenBalanceSchema,
 	nftApprovalsSchema,
@@ -113,7 +114,7 @@ export class Agent {
 			headers: this.headers,
 		};
 
-		return historicalTokenBalanceSchema.parse(
+		return baseDataSchema(historicalTokenBalanceSchema).parse(
 			await fetch(
 				`https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/historical_balances/`,
 				options,
@@ -345,12 +346,12 @@ export class Agent {
 			headers: this.headers,
 		};
 
-		return historicalPortfolioSchema.parse(
+		return baseDataSchema(historicalPortfolioSchema).parse(
 			await fetch(
 				`https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/portfolio_v2/`,
 				options,
 			).then(response => response.json()),
-		);
+		).data;
 	}
 
 	/**
@@ -372,7 +373,7 @@ export class Agent {
 			headers: this.headers,
 		};
 
-		return transactionSummarySchema.parse(
+		return baseDataSchema(transactionSummarySchema).parse(
 			await fetch(
 				`https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/transactions_summary/`,
 				options,
@@ -381,7 +382,7 @@ export class Agent {
 				.then(j => {
 					return j;
 				}),
-		);
+		).data;
 	}
 
 	/**
@@ -402,6 +403,8 @@ export class Agent {
 			page: number;
 		},
 	) {
+		// TODO: build a paginator.
+
 		const options = {
 			method: "GET",
 			headers: this.headers,
@@ -440,7 +443,9 @@ export class Agent {
 			)}`,
 			options,
 		).then(async response => {
-			return transactionResponseSchema.parse(await response.json());
+			return baseDataSchema(transactionResponseSchema).parse(
+				await response.json(),
+			).data;
 		});
 	}
 
@@ -468,14 +473,12 @@ export class Agent {
 			headers: this.headers,
 		};
 
-		return nftResponseSchema.parse(
-			JSON.parse(
-				await fetch(
-					`https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/balances_nft/`,
-					options,
-				).then(response => response.text()),
-			),
-		);
+		return baseDataSchema(nftResponseSchema).parse(
+			await fetch(
+				`https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/balances_nft/`,
+				options,
+			).then(response => response.json()),
+		).data;
 	}
 
 	/**
@@ -504,16 +507,14 @@ export class Agent {
 			headers: this.headers,
 		};
 
-		return nftFloorPriceSchema.parse(
-			JSON.parse(
-				await fetch(
-					`https://api.covalenthq.com/v1/${chainName}/nft_market/${contractAddress}/floor_price/`,
-					options,
-				).then(response => {
-					return response.text();
-				}),
-			),
-		);
+		return baseDataSchema(nftFloorPriceSchema).parse(
+			await fetch(
+				`https://api.covalenthq.com/v1/${chainName}/nft_market/${contractAddress}/floor_price/`,
+				options,
+			).then(response => {
+				return response.json();
+			}),
+		).data;
 	}
 
 	/**
@@ -541,7 +542,7 @@ export class Agent {
 			headers: this.headers,
 		};
 
-		return tokenApprovalSchema.parse(
+		return baseDataSchema(tokenApprovalSchema).parse(
 			await fetch(
 				`https://api.covalenthq.com/v1/${chainName}/approvals/${walletAddress}/`,
 				options,
@@ -568,7 +569,7 @@ export class Agent {
 			headers: this.headers,
 		};
 
-		return nftApprovalsSchema.parse(
+		return baseDataSchema(nftApprovalsSchema).parse(
 			await fetch(
 				`https://api.covalenthq.com/v1/${chainName}/nft/approvals/${walletAddress}/`,
 				options,
@@ -612,7 +613,7 @@ export class Agent {
 
 		const params = new URLSearchParams(obj).toString();
 
-		return quoteSchema.parse(
+		return baseDataSchema(quoteSchema).parse(
 			await fetch(
 				`https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/${chainName}/${currency}/${contractAddress}/${
 					!!params ? `?${params}` : ""
@@ -624,6 +625,16 @@ export class Agent {
 		).data;
 	}
 
+	/**
+	 * Analyzes a wallet's portfolio using OpenAI's GPT model.
+	 *
+	 * @param {ChainName} chainName - The blockchain network to analyze
+	 * @param {Object} options - The analysis options
+	 * @param {string} options.walletAddress - The wallet address to analyze
+	 * @param {string} options.openAIAPIKey - OpenAI API key for GPT analysis
+	 * @param {string} prompt - The analysis prompt/question to ask about the portfolio
+	 * @returns {Promise<OpenAI.Chat.Completions.ChatCompletion>} The AI-generated analysis response
+	 */
 	async analyze(
 		chainName: ChainName,
 		{
@@ -634,11 +645,12 @@ export class Agent {
 	) {
 		const openai = new OpenAI({ apiKey: openAIAPIKey });
 
-		const portfolioStuff = (
-			await this.getHistoricalPortfolioForWalletAddress(chainName, {
+		const portfolioStuff = await this.getHistoricalPortfolioForWalletAddress(
+			chainName,
+			{
 				walletAddress,
-			})
-		).data;
+			},
+		);
 
 		return await openai.chat.completions.create({
 			model: "gpt-4o-mini",
