@@ -588,3 +588,7 @@ export const historicalPortfolioSchema = z.object({
 		),
 	}),
 });
+
+type HistoricalPortfolio = z.infer<typeof historicalPortfolioSchema>;
+
+type Holdings = HistoricalPortfolio["data"]["items"][number]["holdings"];
