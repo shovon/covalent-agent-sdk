@@ -59,7 +59,9 @@ export class Agent {
 	 * Initializes a new instances of the Agent class.
 	 * @param key The GoldRush API key
 	 */
-	constructor(private key: string) {}
+	constructor(
+		private key: string = process.env["AGENT_SEMANTIC_SDK_API_KEY"] ?? "",
+	) {}
 
 	/**
 	 * The total balance of an ERC20 token that belongs to a given WalletAddress
