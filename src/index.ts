@@ -645,7 +645,7 @@ export class Agent {
 			messages: [
 				{
 					role: "system",
-					content: `You are a portfolio analyst looking at the last 30 days of portfolio data, in the format following format (written in TypeScript type but figure it out):
+					content: `You are a portfolio analyst looking at the last 30 days of portfolio data, in the following format (written in TypeScript type but figure it out):
 
 
     {
