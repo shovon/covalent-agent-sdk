@@ -1,18 +1,16 @@
-import {
-	GoldRushClient,
-	ChainName,
-	ChainID,
-	Quote,
-	GoldRushResponse,
-} from "@covalenthq/client-sdk";
+import { ChainName, Quote } from "@covalenthq/client-sdk";
 
 export { ChainName } from "@covalenthq/client-sdk";
 
-import { z } from "zod";
 import {
+	historicalTokenBalanceSchema,
+	nftApprovalsSchema,
 	nftFloorPriceSchema,
 	nftResponseSchema,
+	quoteSchema,
+	tokenApprovalSchema,
 	transactionResponseSchema,
+	transactionsForWalletSchema,
 	transactionSummarySchema,
 } from "./schema";
 
@@ -20,15 +18,11 @@ import {
  * The Covalent agent
  */
 export class Agent {
-	private client: GoldRushClient;
-
 	/**
 	 * Initializes a new instances of the Agent class.
 	 * @param key The GoldRush API key
 	 */
-	constructor(private key: string) {
-		this.client = new GoldRushClient(key);
-	}
+	constructor(private key: string) {}
 
 	/**
 	 * The total balance of an ERC20 token that belongs to a given WalletAddress
@@ -65,12 +59,19 @@ export class Agent {
 		chainName: ChainName,
 		{ walletAddress }: { walletAddress: string },
 	) {
-		const resp =
-			await this.client.BalanceService.getHistoricalTokenBalancesForWalletAddress(
-				chainName,
-				walletAddress,
-			);
-		return resp.data;
+		const options = {
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${this.key}`,
+			},
+		};
+
+		return historicalTokenBalanceSchema.parse(
+			await fetch(
+				`https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/historical_balances/`,
+				options,
+			).then(response => response.json()),
+		).data;
 	}
 
 	/**
@@ -133,7 +134,7 @@ export class Agent {
 
 			for (const quote of quotes) {
 				for (const item of quote.items ?? []) {
-					if (item.price === null) continue;
+					if (item.price === null || item.price === undefined) continue;
 					total += item.price;
 					count++;
 				}
@@ -196,17 +197,27 @@ export class Agent {
 		chainName: ChainName,
 		{
 			walletAddress,
+			page,
 		}: {
 			walletAddress: string;
+			page: number;
 		},
 	) {
-		const it =
-			await this.client.TransactionService.getAllTransactionsForAddress(
-				chainName,
-				walletAddress,
-			);
+		const options = {
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${this.key}`,
+			},
+		};
 
-		return it;
+		return transactionsForWalletSchema.parse(
+			await fetch(
+				`https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/transactions_v3/page/${page}/`,
+				options,
+			).then(async response => {
+				return response.text();
+			}),
+		);
 	}
 
 	/**
@@ -227,8 +238,6 @@ export class Agent {
 				Authorization: `Bearer ${this.key}`,
 			},
 		};
-
-		this.client.AllChainsService.getMultiChainAndMultiAddressTransactions();
 
 		return await fetch(
 			`https://api.covalenthq.com/v1/allchains/transactions/?addresses=${encodeURIComponent(
@@ -327,12 +336,14 @@ export class Agent {
 			},
 		};
 
-		return await fetch(
-			`https://api.covalenthq.com/v1/${chainName}/approvals/${walletAddress}/`,
-			options,
-		).then(response => {
-			return response.json();
-		});
+		return tokenApprovalSchema.parse(
+			await fetch(
+				`https://api.covalenthq.com/v1/${chainName}/approvals/${walletAddress}/`,
+				options,
+			).then(response => {
+				return response.json();
+			}),
+		);
 	}
 
 	async getNFTApprovals(
@@ -346,34 +357,43 @@ export class Agent {
 			},
 		};
 
-		return await fetch(
-			`https://api.covalenthq.com/v1/${chainName}/nft/approvals/${walletAddress}/`,
-			options,
-		).then(response => {
-			return response.json;
-		});
+		return nftApprovalsSchema.parse(
+			await fetch(
+				`https://api.covalenthq.com/v1/${chainName}/nft/approvals/${walletAddress}/`,
+				options,
+			).then(response => {
+				return response.json();
+			}),
+		);
 	}
 
 	/**
 	 * Gets the current price quote for a token on a specific chain.
 	 *
-	 * @param {ChainName} chainNane - The blockchain network to query
+	 * @param {ChainName} chainName - The blockchain network to query
 	 * @param {Object} params - The parameters for the quote request
 	 * @param {string} params.contractAddress - The contract address of the token
 	 * @param {Quote} params.currency - The currency to get the price quote in (e.g. "USD")
 	 * @returns {Promise<any>} A promise that resolves to the token price data
 	 */
 	async getQuote(
-		chainNane: ChainName,
+		chainName: ChainName,
 		{ contractAddress, currency }: { contractAddress: string; currency: Quote },
 	) {
-		// TODO: handle errors.
-		return (
-			await this.client.PricingService.getTokenPrices(
-				chainNane,
-				currency,
-				contractAddress,
-			)
+		const options = {
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${this.key}`,
+			},
+		};
+
+		return quoteSchema.parse(
+			await fetch(
+				`https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/${chainName}/${currency}/${contractAddress}/`,
+				options,
+			).then(response => {
+				return response.json();
+			}),
 		).data;
 	}
 }
