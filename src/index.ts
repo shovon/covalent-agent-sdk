@@ -11,7 +11,6 @@ import {
     transactionsForWalletSchema,
     transactionSummarySchema,
 } from "./schema";
-import OpenAI from "openai";
 
 type BASE_MAINNET = "base-mainnet";
 type BASE_SEPOLIA_TESTNET = "base-sepolia-testnet";
@@ -622,79 +621,5 @@ export class Agent {
                 options,
             ).then((response) => response.json()),
         ).data;
-    }
-
-    /**
-     * Analyzes a wallet's portfolio using OpenAI's GPT model.
-     *
-     * @param {ChainName} chainName - The blockchain network to analyze
-     * @param {Object} options - The analysis options
-     * @param {string} options.walletAddress - The wallet address to analyze
-     * @param {string} options.openAIAPIKey - OpenAI API key for GPT analysis
-     * @param {string} prompt - The analysis prompt/question to ask about the portfolio
-     * @returns {Promise<OpenAI.Chat.Completions.ChatCompletion>} The AI-generated analysis response
-     */
-    async analyze(
-        chainName: ChainName,
-        {
-            walletAddress,
-            openAIAPIKey,
-        }: { walletAddress: string; openAIAPIKey: string },
-        prompt: string,
-    ) {
-        const openai = new OpenAI({ apiKey: openAIAPIKey });
-
-        const portfolioStuff =
-            await this.getHistoricalPortfolioForWalletAddress(chainName, {
-                walletAddress,
-            });
-
-        return await openai.chat.completions.create({
-            model: "gpt-4o-mini",
-            messages: [
-                {
-                    role: "system",
-                    content: `You are a portfolio analyst looking at the last 30 days of portfolio data, in the following format (written in TypeScript type but figure it out):
-
-
-    {
-    	chain_id: number;
-    	chain_name: string;
-    	updated_at: string;
-    	quote_currency: string;
-    	items: {
-    			contract_decimals: number;
-    			contract_name: string;
-    			contract_ticker_symbol: string;
-    			contract_address: string;
-    			logo_url: string;
-    			holdings: {
-    				timestamp: string;
-    				close: {
-    						balance: string;
-    						quote: number;
-    						pretty_quote: string;
-    				};
-    				high: {};
-    				low: {};
-    				open: {};
-    				quote_rate?: number | null | undefined;
-    		}[];
-    	}[];
-    	address: string;
-    }
-
-The user is going to ask about it. Answer it to the best of your ability.
-
-Below is the result of querying portfolio data.
-
-${JSON.stringify(portfolioStuff)}`,
-                },
-                {
-                    role: "user",
-                    content: prompt,
-                },
-            ],
-        });
     }
 }
