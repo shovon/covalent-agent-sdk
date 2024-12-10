@@ -1,7 +1,4 @@
-import {
-    baseDataSchema,
-    nftFloorPriceSchema,
-} from "./schema";
+import { baseDataSchema, nftFloorPriceSchema } from "./schema";
 import { GoldRushClient } from "@covalenthq/client-sdk";
 
 type BASE_MAINNET = "base-mainnet";
@@ -434,7 +431,10 @@ export class Agent {
         chainName: ChainName,
         { walletAddress }: { walletAddress: string },
     ) {
-        return this.client.NftService.getNftsForAddress(chainName, walletAddress);
+        return this.client.NftService.getNftsForAddress(
+            chainName,
+            walletAddress,
+        );
     }
 
     /**
@@ -491,7 +491,10 @@ export class Agent {
         chainName: ChainName,
         { walletAddress }: { walletAddress: string },
     ) {
-        return this.client.SecurityService.getApprovals(chainName, walletAddress);
+        return this.client.SecurityService.getApprovals(
+            chainName,
+            walletAddress,
+        );
     }
 
     /**
