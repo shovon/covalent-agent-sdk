@@ -6,58 +6,58 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-text-color-dark: rgb(32, 32, 32);
-  --ifm-text-color-light: white;
-  --ifm-text-color: var(--ifm-text-color-dark);
+    --ifm-color-primary: #2e8555;
+    --ifm-color-primary-dark: #29784c;
+    --ifm-color-primary-darker: #277148;
+    --ifm-color-primary-darkest: #205d3b;
+    --ifm-color-primary-light: #33925d;
+    --ifm-color-primary-lighter: #359962;
+    --ifm-color-primary-lightest: #3cad6e;
+    --ifm-code-font-size: 95%;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-text-color-dark: rgb(32, 32, 32);
+    --ifm-text-color-light: white;
+    --ifm-text-color: var(--ifm-text-color-dark);
 }
 
 :root {
-  --brand-blue: #0263f3;
-  --blue-a11: #0263f3;
-  --brand-green: #54fe6d;
-  --base-card-surface-box-shadow: 0 0 0 0;
-  --lime-a11: var(--brand-green);
-  --lime-9: var(--brand-green);
-  --lime-a5: var(--brand-green);
-  --lime-a9: var(--brand-green);
-  --purple-a11: #8558d4;
-  --mint-a11: #9ddac8;
-  --mint-a6: #9ddac8;
-  --font-size-9: calc(130px* var(--scaling));
-  --font-size-8: calc(100px* var(--scaling));
-  --font-size-7: calc(80px* var(--scaling));
-  --font-size-6: calc(50px* var(--scaling));
-  --font-size-5: calc(35px* var(--scaling));
-  --heading-line-height-9: calc(130px* var(--scaling));
-  --heading-line-height-8: calc(100px* var(--scaling));
-  --heading-line-height-7: calc(80px* var(--scaling));
-  --heading-line-height-6: calc(50px* var(--scaling));
-  --heading-line-height-5: calc(35px* var(--scaling));
-  --font-weight-bold: 600;
+    --brand-blue: #0263f3;
+    --blue-a11: #0263f3;
+    --brand-green: #54fe6d;
+    --base-card-surface-box-shadow: 0 0 0 0;
+    --lime-a11: var(--brand-green);
+    --lime-9: var(--brand-green);
+    --lime-a5: var(--brand-green);
+    --lime-a9: var(--brand-green);
+    --purple-a11: #8558d4;
+    --mint-a11: #9ddac8;
+    --mint-a6: #9ddac8;
+    --font-size-9: calc(130px * var(--scaling));
+    --font-size-8: calc(100px * var(--scaling));
+    --font-size-7: calc(80px * var(--scaling));
+    --font-size-6: calc(50px * var(--scaling));
+    --font-size-5: calc(35px * var(--scaling));
+    --heading-line-height-9: calc(130px * var(--scaling));
+    --heading-line-height-8: calc(100px * var(--scaling));
+    --heading-line-height-7: calc(80px * var(--scaling));
+    --heading-line-height-6: calc(50px * var(--scaling));
+    --heading-line-height-5: calc(35px * var(--scaling));
+    --font-weight-bold: 600;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  --ifm-text-color: var(--ifm-text-color-light);
+[data-theme="dark"] {
+    --ifm-color-primary: #25c2a0;
+    --ifm-color-primary-dark: #21af90;
+    --ifm-color-primary-darker: #1fa588;
+    --ifm-color-primary-darkest: #1a8870;
+    --ifm-color-primary-light: #29d5b0;
+    --ifm-color-primary-lighter: #32d8b4;
+    --ifm-color-primary-lightest: #4fddbf;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+    --ifm-text-color: var(--ifm-text-color-light);
 }
 
 :root {
-  color: var(--ifm-text-color);
+    color: var(--ifm-text-color);
 }

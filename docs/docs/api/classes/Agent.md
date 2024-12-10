@@ -60,7 +60,7 @@ some and metadata that represents the list of historical balances
 
 [src/main.ts:55](https://github.com/shovon/covalent-agent-sdk/blob/8d1ef3baca97c8c4f586cabbe4cf90e92e11a87a/src/main.ts#L55)
 
-***
+---
 
 ### getQuote()
 
@@ -102,7 +102,7 @@ A promise that resolves to the token price data
 
 [src/main.ts:176](https://github.com/shovon/covalent-agent-sdk/blob/8d1ef3baca97c8c4f586cabbe4cf90e92e11a87a/src/main.ts#L176)
 
-***
+---
 
 ### getTokenBalancesForChain()
 
@@ -138,7 +138,7 @@ Contains the wallet address and contract address.
 
 [src/main.ts:29](https://github.com/shovon/covalent-agent-sdk/blob/8d1ef3baca97c8c4f586cabbe4cf90e92e11a87a/src/main.ts#L29)
 
-***
+---
 
 ### getTokenHoldings()
 
@@ -178,7 +178,7 @@ Contains the wallet address and the currency to work with
 
 [src/main.ts:72](https://github.com/shovon/covalent-agent-sdk/blob/8d1ef3baca97c8c4f586cabbe4cf90e92e11a87a/src/main.ts#L72)
 
-***
+---
 
 ### portfolioGrowth()
 
@@ -192,7 +192,7 @@ Contains the wallet address and the currency to work with
 
 [src/main.ts:190](https://github.com/shovon/covalent-agent-sdk/blob/8d1ef3baca97c8c4f586cabbe4cf90e92e11a87a/src/main.ts#L190)
 
-***
+---
 
 ### transactionHistory()
 

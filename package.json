@@ -1,27 +1,29 @@
 {
-  "name": "@covalenthq/agent-sdk",
-  "version": "0.1.0",
-  "description": "Covalent Agent SDK. Build cool AI agents for the blockchain",
-  "main": "dist",
-  "types": "dist",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "clean": "rm -r dist",
-    "prepublishOnly": "npm run build",
-    "pretty": "prettier . --write"
-  },
-  "author": {
-    "name": "covalenthq",
-    "url": "https://covalenthq.com"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "openai": "^4.76.0",
-    "zod": "^3.23.8"
-  },
-  "devDependencies": {
-    "@types/node": "^22.10.1",
-    "typescript": "^5.7.2"
-  }
+    "name": "@covalenthq/agent-sdk",
+    "version": "0.1.0",
+    "description": "Covalent Agent SDK. Build cool AI agents for the blockchain",
+    "main": "dist",
+    "types": "dist",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc",
+        "clean": "rm -r dist",
+        "prepublishOnly": "npm run build",
+        "pretty": "prettier . --write"
+    },
+    "author": {
+        "name": "covalenthq",
+        "url": "https://covalenthq.com"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "@trivago/prettier-plugin-sort-imports": "^5.2.0",
+        "openai": "^4.76.0",
+        "prettier-plugin-tailwindcss": "^0.6.9",
+        "zod": "^3.23.8"
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.1",
+        "typescript": "^5.7.2"
+    }
 }

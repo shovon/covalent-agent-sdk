@@ -2,1660 +2,1660 @@
 
 ## Enumeration Members
 
-### APECHAIN\_TESTNET
+### APECHAIN_TESTNET
 
-> **APECHAIN\_TESTNET**: `"apechain-testnet"`
+> **APECHAIN_TESTNET**: `"apechain-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:121
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:121
 
-***
+---
 
-### ARBITRUM\_MAINNET
+### ARBITRUM_MAINNET
 
-> **ARBITRUM\_MAINNET**: `"arbitrum-mainnet"`
+> **ARBITRUM_MAINNET**: `"arbitrum-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:17
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:17
 
-***
+---
 
-### ARBITRUM\_NOVA\_MAINNET
+### ARBITRUM_NOVA_MAINNET
 
-> **ARBITRUM\_NOVA\_MAINNET**: `"arbitrum-nova-mainnet"`
+> **ARBITRUM_NOVA_MAINNET**: `"arbitrum-nova-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:18
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:18
 
-***
+---
 
-### ARBITRUM\_SEPOLIA
+### ARBITRUM_SEPOLIA
 
-> **ARBITRUM\_SEPOLIA**: `"arbitrum-sepolia"`
+> **ARBITRUM_SEPOLIA**: `"arbitrum-sepolia"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:19
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:19
 
-***
+---
 
-### AURORA\_MAINNET
+### AURORA_MAINNET
 
-> **AURORA\_MAINNET**: `"aurora-mainnet"`
+> **AURORA_MAINNET**: `"aurora-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:37
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:37
 
-***
+---
 
-### AURORA\_TESTNET
+### AURORA_TESTNET
 
-> **AURORA\_TESTNET**: `"aurora-testnet"`
+> **AURORA_TESTNET**: `"aurora-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:38
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:38
 
-***
+---
 
-### AVALANCHE\_AMPLIFY\_TESTNET
+### AVALANCHE_AMPLIFY_TESTNET
 
-> **AVALANCHE\_AMPLIFY\_TESTNET**: `"avalanche-amplify-testnet"`
+> **AVALANCHE_AMPLIFY_TESTNET**: `"avalanche-amplify-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:78
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:78
 
-***
+---
 
-### AVALANCHE\_AVACLOUD\_TESTNET
+### AVALANCHE_AVACLOUD_TESTNET
 
-> **AVALANCHE\_AVACLOUD\_TESTNET**: `"avalanche-avacloud-testnet"`
+> **AVALANCHE_AVACLOUD_TESTNET**: `"avalanche-avacloud-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:63
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:63
 
-***
+---
 
-### AVALANCHE\_BEAM\_MAINNET
+### AVALANCHE_BEAM_MAINNET
 
-> **AVALANCHE\_BEAM\_MAINNET**: `"avalanche-beam-mainnet"`
+> **AVALANCHE_BEAM_MAINNET**: `"avalanche-beam-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:64
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:64
 
-***
+---
 
-### AVALANCHE\_BEAM\_TESTNET
+### AVALANCHE_BEAM_TESTNET
 
-> **AVALANCHE\_BEAM\_TESTNET**: `"avalanche-beam-testnet"`
+> **AVALANCHE_BEAM_TESTNET**: `"avalanche-beam-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:57
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:57
 
-***
+---
 
-### AVALANCHE\_BLITZ\_TESTNET
+### AVALANCHE_BLITZ_TESTNET
 
-> **AVALANCHE\_BLITZ\_TESTNET**: `"avalanche-blitz-testnet"`
+> **AVALANCHE_BLITZ_TESTNET**: `"avalanche-blitz-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:58
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:58
 
-***
+---
 
-### AVALANCHE\_BULLETIN\_TESTNET
+### AVALANCHE_BULLETIN_TESTNET
 
-> **AVALANCHE\_BULLETIN\_TESTNET**: `"avalanche-bulletin-testnet"`
+> **AVALANCHE_BULLETIN_TESTNET**: `"avalanche-bulletin-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:65
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:65
 
-***
+---
 
-### AVALANCHE\_CONDUIT\_TESTNET
+### AVALANCHE_CONDUIT_TESTNET
 
-> **AVALANCHE\_CONDUIT\_TESTNET**: `"avalanche-conduit-testnet"`
+> **AVALANCHE_CONDUIT_TESTNET**: `"avalanche-conduit-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:66
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:66
 
-***
+---
 
-### AVALANCHE\_DEXALOT\_MAINNET
+### AVALANCHE_DEXALOT_MAINNET
 
-> **AVALANCHE\_DEXALOT\_MAINNET**: `"avalanche-dexalot-mainnet"`
+> **AVALANCHE_DEXALOT_MAINNET**: `"avalanche-dexalot-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:48
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:48
 
-***
+---
 
-### AVALANCHE\_DEXALOT\_TESTNET
+### AVALANCHE_DEXALOT_TESTNET
 
-> **AVALANCHE\_DEXALOT\_TESTNET**: `"avalanche-dexalot-testnet"`
+> **AVALANCHE_DEXALOT_TESTNET**: `"avalanche-dexalot-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:49
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:49
 
-***
+---
 
-### AVALANCHE\_DOS
+### AVALANCHE_DOS
 
-> **AVALANCHE\_DOS**: `"avalanche-dos"`
+> **AVALANCHE_DOS**: `"avalanche-dos"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:52
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:52
 
-***
+---
 
-### AVALANCHE\_GREEN\_DOT\_TESTNET
+### AVALANCHE_GREEN_DOT_TESTNET
 
-> **AVALANCHE\_GREEN\_DOT\_TESTNET**: `"avalanche-green-dot-testnet"`
+> **AVALANCHE_GREEN_DOT_TESTNET**: `"avalanche-green-dot-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:60
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:60
 
-***
+---
 
-### AVALANCHE\_HERO\_TESTNET
+### AVALANCHE_HERO_TESTNET
 
-> **AVALANCHE\_HERO\_TESTNET**: `"avalanche-hero-testnet"`
+> **AVALANCHE_HERO_TESTNET**: `"avalanche-hero-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:67
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:67
 
-***
+---
 
-### AVALANCHE\_HUBBLE\_EXCHANGE\_MAINNET
+### AVALANCHE_HUBBLE_EXCHANGE_MAINNET
 
-> **AVALANCHE\_HUBBLE\_EXCHANGE\_MAINNET**: `"avalanche-hubble-exchange-mainnet"`
+> **AVALANCHE_HUBBLE_EXCHANGE_MAINNET**: `"avalanche-hubble-exchange-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:81
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:81
 
-***
+---
 
-### AVALANCHE\_HUBBLE\_EXCHANGE\_TESTNET
+### AVALANCHE_HUBBLE_EXCHANGE_TESTNET
 
-> **AVALANCHE\_HUBBLE\_EXCHANGE\_TESTNET**: `"avalanche-hubble-exchange-testnet"`
+> **AVALANCHE_HUBBLE_EXCHANGE_TESTNET**: `"avalanche-hubble-exchange-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:68
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:68
 
-***
+---
 
-### AVALANCHE\_KIWI\_TESTNET
+### AVALANCHE_KIWI_TESTNET
 
-> **AVALANCHE\_KIWI\_TESTNET**: `"avalanche-kiwi-testnet"`
+> **AVALANCHE_KIWI_TESTNET**: `"avalanche-kiwi-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:69
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:69
 
-***
+---
 
-### AVALANCHE\_LT0\_TESTNET
+### AVALANCHE_LT0_TESTNET
 
-> **AVALANCHE\_LT0\_TESTNET**: `"avalanche-lt0-testnet"`
+> **AVALANCHE_LT0_TESTNET**: `"avalanche-lt0-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:79
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:79
 
-***
+---
 
-### AVALANCHE\_LT5\_TESTNET
+### AVALANCHE_LT5_TESTNET
 
-> **AVALANCHE\_LT5\_TESTNET**: `"avalanche-lt5-testnet"`
+> **AVALANCHE_LT5_TESTNET**: `"avalanche-lt5-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:80
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:80
 
-***
+---
 
-### AVALANCHE\_MAINNET
+### AVALANCHE_MAINNET
 
-> **AVALANCHE\_MAINNET**: `"avalanche-mainnet"`
+> **AVALANCHE_MAINNET**: `"avalanche-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:8
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:8
 
-***
+---
 
-### AVALANCHE\_MELD\_MAINNET
+### AVALANCHE_MELD_MAINNET
 
-> **AVALANCHE\_MELD\_MAINNET**: `"avalanche-meld-mainnet"`
+> **AVALANCHE_MELD_MAINNET**: `"avalanche-meld-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:127
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:127
 
-***
+---
 
-### AVALANCHE\_MELD\_TESTNET
+### AVALANCHE_MELD_TESTNET
 
-> **AVALANCHE\_MELD\_TESTNET**: `"avalanche-meld-testnet"`
+> **AVALANCHE_MELD_TESTNET**: `"avalanche-meld-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:126
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:126
 
-***
+---
 
-### AVALANCHE\_MIHO\_TESTNET
+### AVALANCHE_MIHO_TESTNET
 
-> **AVALANCHE\_MIHO\_TESTNET**: `"avalanche-miho-testnet"`
+> **AVALANCHE_MIHO_TESTNET**: `"avalanche-miho-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:70
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:70
 
-***
+---
 
-### AVALANCHE\_MINTARA\_TESTNET
+### AVALANCHE_MINTARA_TESTNET
 
-> **AVALANCHE\_MINTARA\_TESTNET**: `"avalanche-mintara-testnet"`
+> **AVALANCHE_MINTARA_TESTNET**: `"avalanche-mintara-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:59
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:59
 
-***
+---
 
-### AVALANCHE\_MIRAI\_TESTNET
+### AVALANCHE_MIRAI_TESTNET
 
-> **AVALANCHE\_MIRAI\_TESTNET**: `"avalanche-mirai-testnet"`
+> **AVALANCHE_MIRAI_TESTNET**: `"avalanche-mirai-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:77
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:77
 
-***
+---
 
-### AVALANCHE\_MONDRIAN\_TESTNET
+### AVALANCHE_MONDRIAN_TESTNET
 
-> **AVALANCHE\_MONDRIAN\_TESTNET**: `"avalanche-mondrian-testnet"`
+> **AVALANCHE_MONDRIAN_TESTNET**: `"avalanche-mondrian-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:71
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:71
 
-***
+---
 
-### AVALANCHE\_NMAC\_TESTNET
+### AVALANCHE_NMAC_TESTNET
 
-> **AVALANCHE\_NMAC\_TESTNET**: `"avalanche-nmac-testnet"`
+> **AVALANCHE_NMAC_TESTNET**: `"avalanche-nmac-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:72
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:72
 
-***
+---
 
-### AVALANCHE\_NUMBERS
+### AVALANCHE_NUMBERS
 
-> **AVALANCHE\_NUMBERS**: `"avalanche-numbers"`
+> **AVALANCHE_NUMBERS**: `"avalanche-numbers"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:51
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:51
 
-***
+---
 
-### AVALANCHE\_ORDERLY\_TESTNET
+### AVALANCHE_ORDERLY_TESTNET
 
-> **AVALANCHE\_ORDERLY\_TESTNET**: `"avalanche-orderly-testnet"`
+> **AVALANCHE_ORDERLY_TESTNET**: `"avalanche-orderly-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:73
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:73
 
-***
+---
 
-### AVALANCHE\_PLAYA3ULL\_TESTNET
+### AVALANCHE_PLAYA3ULL_TESTNET
 
-> **AVALANCHE\_PLAYA3ULL\_TESTNET**: `"avalanche-playa3ull-testnet"`
+> **AVALANCHE_PLAYA3ULL_TESTNET**: `"avalanche-playa3ull-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:76
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:76
 
-***
+---
 
-### AVALANCHE\_PULSAR\_TESTNET
+### AVALANCHE_PULSAR_TESTNET
 
-> **AVALANCHE\_PULSAR\_TESTNET**: `"avalanche-pulsar-testnet"`
+> **AVALANCHE_PULSAR_TESTNET**: `"avalanche-pulsar-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:61
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:61
 
-***
+---
 
-### AVALANCHE\_SHRAPNEL\_MAINNET
+### AVALANCHE_SHRAPNEL_MAINNET
 
-> **AVALANCHE\_SHRAPNEL\_MAINNET**: `"avalanche-shrapnel-mainnet"`
+> **AVALANCHE_SHRAPNEL_MAINNET**: `"avalanche-shrapnel-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:50
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:50
 
-***
+---
 
-### AVALANCHE\_SHRAPNEL\_TESTNET
+### AVALANCHE_SHRAPNEL_TESTNET
 
-> **AVALANCHE\_SHRAPNEL\_TESTNET**: `"avalanche-shrapnel-testnet"`
+> **AVALANCHE_SHRAPNEL_TESTNET**: `"avalanche-shrapnel-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:56
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:56
 
-***
+---
 
-### AVALANCHE\_STEP\_NETWORK
+### AVALANCHE_STEP_NETWORK
 
-> **AVALANCHE\_STEP\_NETWORK**: `"avalanche-step-network"`
+> **AVALANCHE_STEP_NETWORK**: `"avalanche-step-network"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:55
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:55
 
-***
+---
 
-### AVALANCHE\_TESTNET
+### AVALANCHE_TESTNET
 
-> **AVALANCHE\_TESTNET**: `"avalanche-testnet"`
+> **AVALANCHE_TESTNET**: `"avalanche-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:9
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:9
 
-***
+---
 
-### AVALANCHE\_THIRDWEB\_TESTNET
+### AVALANCHE_THIRDWEB_TESTNET
 
-> **AVALANCHE\_THIRDWEB\_TESTNET**: `"avalanche-thirdweb-testnet"`
+> **AVALANCHE_THIRDWEB_TESTNET**: `"avalanche-thirdweb-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:74
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:74
 
-***
+---
 
-### AVALANCHE\_UPTN
+### AVALANCHE_UPTN
 
-> **AVALANCHE\_UPTN**: `"avalanche-uptn"`
+> **AVALANCHE_UPTN**: `"avalanche-uptn"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:62
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:62
 
-***
+---
 
-### AVALANCHE\_WAGMI\_TESTNET
+### AVALANCHE_WAGMI_TESTNET
 
-> **AVALANCHE\_WAGMI\_TESTNET**: `"avalanche-wagmi-testnet"`
+> **AVALANCHE_WAGMI_TESTNET**: `"avalanche-wagmi-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:75
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:75
 
-***
+---
 
-### AVALANCHE\_XANACHAIN
+### AVALANCHE_XANACHAIN
 
-> **AVALANCHE\_XANACHAIN**: `"avalanche-xanachain"`
+> **AVALANCHE_XANACHAIN**: `"avalanche-xanachain"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:54
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:54
 
-***
+---
 
-### AVALANCHE\_XPLUS
+### AVALANCHE_XPLUS
 
-> **AVALANCHE\_XPLUS**: `"avalanche-xplus"`
+> **AVALANCHE_XPLUS**: `"avalanche-xplus"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:53
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:53
 
-***
+---
 
-### AXIE\_MAINNET
+### AXIE_MAINNET
 
-> **AXIE\_MAINNET**: `"axie-mainnet"`
+> **AXIE_MAINNET**: `"axie-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:26
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:26
 
-***
+---
 
-### BASE\_MAINNET
+### BASE_MAINNET
 
-> **BASE\_MAINNET**: `"base-mainnet"`
+> **BASE_MAINNET**: `"base-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:103
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:103
 
-***
+---
 
-### BASE\_SEPOLIA\_TESTNET
+### BASE_SEPOLIA_TESTNET
 
-> **BASE\_SEPOLIA\_TESTNET**: `"base-sepolia-testnet"`
+> **BASE_SEPOLIA_TESTNET**: `"base-sepolia-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:105
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:105
 
-***
+---
 
-### BASE\_TESTNET
+### BASE_TESTNET
 
-> **BASE\_TESTNET**: `"base-testnet"`
+> **BASE_TESTNET**: `"base-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:104
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:104
 
-***
+---
 
-### BERACHAIN\_TESTNET
+### BERACHAIN_TESTNET
 
-> **BERACHAIN\_TESTNET**: `"berachain-testnet"`
+> **BERACHAIN_TESTNET**: `"berachain-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:123
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:123
 
-***
+---
 
-### BLAST\_MAINNET
+### BLAST_MAINNET
 
-> **BLAST\_MAINNET**: `"blast-mainnet"`
+> **BLAST_MAINNET**: `"blast-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:164
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:164
 
-***
+---
 
-### BNB\_ANTIMATTER\_TESTNET
+### BNB_ANTIMATTER_TESTNET
 
-> **BNB\_ANTIMATTER\_TESTNET**: `"bnb-antimatter-testnet"`
+> **BNB_ANTIMATTER_TESTNET**: `"bnb-antimatter-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:137
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:137
 
-***
+---
 
-### BNB\_FNCY\_MAINNET
+### BNB_FNCY_MAINNET
 
-> **BNB\_FNCY\_MAINNET**: `"bnb-fncy-mainnet"`
+> **BNB_FNCY_MAINNET**: `"bnb-fncy-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:139
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:139
 
-***
+---
 
-### BNB\_FNCY\_TESTNET
+### BNB_FNCY_TESTNET
 
-> **BNB\_FNCY\_TESTNET**: `"bnb-fncy-testnet"`
+> **BNB_FNCY_TESTNET**: `"bnb-fncy-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:141
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:141
 
-***
+---
 
-### BNB\_META\_APES\_MAINNET
+### BNB_META_APES_MAINNET
 
-> **BNB\_META\_APES\_MAINNET**: `"bnb-meta-apes-mainnet"`
+> **BNB_META_APES_MAINNET**: `"bnb-meta-apes-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:138
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:138
 
-***
+---
 
-### BNB\_OPBNB\_MAINNET
+### BNB_OPBNB_MAINNET
 
-> **BNB\_OPBNB\_MAINNET**: `"bnb-opbnb-mainnet"`
+> **BNB_OPBNB_MAINNET**: `"bnb-opbnb-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:142
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:142
 
-***
+---
 
-### BNB\_OPBNB\_TESTNET
+### BNB_OPBNB_TESTNET
 
-> **BNB\_OPBNB\_TESTNET**: `"bnb-opbnb-testnet"`
+> **BNB_OPBNB_TESTNET**: `"bnb-opbnb-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:140
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:140
 
-***
+---
 
-### BOBA\_BNB\_MAINNET
+### BOBA_BNB_MAINNET
 
-> **BOBA\_BNB\_MAINNET**: `"boba-bnb-mainnet"`
+> **BOBA_BNB_MAINNET**: `"boba-bnb-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:43
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:43
 
-***
+---
 
-### BOBA\_BNB\_TESTNET
+### BOBA_BNB_TESTNET
 
-> **BOBA\_BNB\_TESTNET**: `"boba-bnb-testnet"`
+> **BOBA_BNB_TESTNET**: `"boba-bnb-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:44
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:44
 
-***
+---
 
-### BOBA\_MAINNET
+### BOBA_MAINNET
 
-> **BOBA\_MAINNET**: `"boba-mainnet"`
+> **BOBA_MAINNET**: `"boba-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:42
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:42
 
-***
+---
 
-### BSC\_MAINNET
+### BSC_MAINNET
 
-> **BSC\_MAINNET**: `"bsc-mainnet"`
+> **BSC_MAINNET**: `"bsc-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:10
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:10
 
-***
+---
 
-### BSC\_TESTNET
+### BSC_TESTNET
 
-> **BSC\_TESTNET**: `"bsc-testnet"`
+> **BSC_TESTNET**: `"bsc-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:11
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:11
 
-***
+---
 
-### BTC\_MAINNET
+### BTC_MAINNET
 
-> **BTC\_MAINNET**: `"btc-mainnet"`
+> **BTC_MAINNET**: `"btc-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:24
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:24
 
-***
+---
 
-### CANTO\_MAINNET
+### CANTO_MAINNET
 
-> **CANTO\_MAINNET**: `"canto-mainnet"`
+> **CANTO_MAINNET**: `"canto-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:87
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:87
 
-***
+---
 
-### CELO\_MAINNET
+### CELO_MAINNET
 
-> **CELO\_MAINNET**: `"celo-mainnet"`
+> **CELO_MAINNET**: `"celo-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:115
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:115
 
-***
+---
 
-### COVALENT\_INTERNAL\_NETWORK\_V1
+### COVALENT_INTERNAL_NETWORK_V1
 
-> **COVALENT\_INTERNAL\_NETWORK\_V1**: `"covalent-internal-network-v1"`
+> **COVALENT_INTERNAL_NETWORK_V1**: `"covalent-internal-network-v1"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:167
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:167
 
-***
+---
 
-### CRONOS\_MAINNET
+### CRONOS_MAINNET
 
-> **CRONOS\_MAINNET**: `"cronos-mainnet"`
+> **CRONOS_MAINNET**: `"cronos-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:33
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:33
 
-***
+---
 
-### CRONOS\_TESTNET
+### CRONOS_TESTNET
 
-> **CRONOS\_TESTNET**: `"cronos-testnet"`
+> **CRONOS_TESTNET**: `"cronos-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:34
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:34
 
-***
+---
 
-### CRONOS\_ZKEVM\_MAINNET
+### CRONOS_ZKEVM_MAINNET
 
-> **CRONOS\_ZKEVM\_MAINNET**: `"cronos-zkevm-mainnet"`
+> **CRONOS_ZKEVM_MAINNET**: `"cronos-zkevm-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:36
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:36
 
-***
+---
 
-### CRONOS\_ZKEVM\_TESTNET
+### CRONOS_ZKEVM_TESTNET
 
-> **CRONOS\_ZKEVM\_TESTNET**: `"cronos-zkevm-testnet"`
+> **CRONOS_ZKEVM_TESTNET**: `"cronos-zkevm-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:35
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:35
 
-***
+---
 
-### CROSSFI\_EVM\_TESTNET
+### CROSSFI_EVM_TESTNET
 
-> **CROSSFI\_EVM\_TESTNET**: `"crossfi-evm-testnet"`
+> **CROSSFI_EVM_TESTNET**: `"crossfi-evm-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:117
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:117
 
-***
+---
 
-### DEFI\_KINGDOMS\_MAINNET
+### DEFI_KINGDOMS_MAINNET
 
-> **DEFI\_KINGDOMS\_MAINNET**: `"defi-kingdoms-mainnet"`
+> **DEFI_KINGDOMS_MAINNET**: `"defi-kingdoms-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:40
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:40
 
-***
+---
 
-### DEFI\_KINGDOMS\_TESTNET
+### DEFI_KINGDOMS_TESTNET
 
-> **DEFI\_KINGDOMS\_TESTNET**: `"defi-kingdoms-testnet"`
+> **DEFI_KINGDOMS_TESTNET**: `"defi-kingdoms-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:41
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:41
 
-***
+---
 
-### EMERALD\_PARATIME\_MAINNET
+### EMERALD_PARATIME_MAINNET
 
-> **EMERALD\_PARATIME\_MAINNET**: `"emerald-paratime-mainnet"`
+> **EMERALD_PARATIME_MAINNET**: `"emerald-paratime-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:39
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:39
 
-***
+---
 
-### ETH\_GOERLI
+### ETH_GOERLI
 
-> **ETH\_GOERLI**: `"eth-goerli"`
+> **ETH_GOERLI**: `"eth-goerli"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:4
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:4
 
-***
+---
 
-### ETH\_HOLESKY
+### ETH_HOLESKY
 
-> **ETH\_HOLESKY**: `"eth-holesky"`
+> **ETH_HOLESKY**: `"eth-holesky"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:5
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:5
 
-***
+---
 
-### ETH\_MAINNET
+### ETH_MAINNET
 
-> **ETH\_MAINNET**: `"eth-mainnet"`
+> **ETH_MAINNET**: `"eth-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:2
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:2
 
-***
+---
 
-### ETH\_SEPOLIA
+### ETH_SEPOLIA
 
-> **ETH\_SEPOLIA**: `"eth-sepolia"`
+> **ETH_SEPOLIA**: `"eth-sepolia"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:3
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:3
 
-***
+---
 
-### EVMOS\_MAINNET
+### EVMOS_MAINNET
 
-> **EVMOS\_MAINNET**: `"evmos-mainnet"`
+> **EVMOS_MAINNET**: `"evmos-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:29
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:29
 
-***
+---
 
-### EVMOS\_TESTNET
+### EVMOS_TESTNET
 
-> **EVMOS\_TESTNET**: `"evmos-testnet"`
+> **EVMOS_TESTNET**: `"evmos-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:30
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:30
 
-***
+---
 
-### FANTOM\_MAINNET
+### FANTOM_MAINNET
 
-> **FANTOM\_MAINNET**: `"fantom-mainnet"`
+> **FANTOM_MAINNET**: `"fantom-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:20
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:20
 
-***
+---
 
-### FANTOM\_TESTNET
+### FANTOM_TESTNET
 
-> **FANTOM\_TESTNET**: `"fantom-testnet"`
+> **FANTOM_TESTNET**: `"fantom-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:21
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:21
 
-***
+---
 
-### FLARENETWORKS\_CANARY\_MAINNET
+### FLARENETWORKS_CANARY_MAINNET
 
-> **FLARENETWORKS\_CANARY\_MAINNET**: `"flarenetworks-canary-mainnet"`
+> **FLARENETWORKS_CANARY_MAINNET**: `"flarenetworks-canary-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:90
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:90
 
-***
+---
 
-### FLARENETWORKS\_CANARY\_TESTNET
+### FLARENETWORKS_CANARY_TESTNET
 
-> **FLARENETWORKS\_CANARY\_TESTNET**: `"flarenetworks-canary-testnet"`
+> **FLARENETWORKS_CANARY_TESTNET**: `"flarenetworks-canary-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:91
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:91
 
-***
+---
 
-### FLARENETWORKS\_FLARE\_MAINNET
+### FLARENETWORKS_FLARE_MAINNET
 
-> **FLARENETWORKS\_FLARE\_MAINNET**: `"flarenetworks-flare-mainnet"`
+> **FLARENETWORKS_FLARE_MAINNET**: `"flarenetworks-flare-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:88
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:88
 
-***
+---
 
-### FLARENETWORKS\_FLARE\_TESTNET
+### FLARENETWORKS_FLARE_TESTNET
 
-> **FLARENETWORKS\_FLARE\_TESTNET**: `"flarenetworks-flare-testnet"`
+> **FLARENETWORKS_FLARE_TESTNET**: `"flarenetworks-flare-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:89
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:89
 
-***
+---
 
-### FRAXTAL\_MAINNET
+### FRAXTAL_MAINNET
 
-> **FRAXTAL\_MAINNET**: `"fraxtal-mainnet"`
+> **FRAXTAL_MAINNET**: `"fraxtal-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:120
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:120
 
-***
+---
 
-### GNOSIS\_MAINNET
+### GNOSIS_MAINNET
 
-> **GNOSIS\_MAINNET**: `"gnosis-mainnet"`
+> **GNOSIS_MAINNET**: `"gnosis-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:154
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:154
 
-***
+---
 
-### GNOSIS\_TESTNET
+### GNOSIS_TESTNET
 
-> **GNOSIS\_TESTNET**: `"gnosis-testnet"`
+> **GNOSIS_TESTNET**: `"gnosis-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:155
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:155
 
-***
+---
 
-### GUNZILLA\_TESTNET
+### GUNZILLA_TESTNET
 
-> **GUNZILLA\_TESTNET**: `"gunzilla-testnet"`
+> **GUNZILLA_TESTNET**: `"gunzilla-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:128
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:128
 
-***
+---
 
-### HARMONY\_MAINNET
+### HARMONY_MAINNET
 
-> **HARMONY\_MAINNET**: `"harmony-mainnet"`
+> **HARMONY_MAINNET**: `"harmony-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:31
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:31
 
-***
+---
 
-### HARMONY\_TESTNET
+### HARMONY_TESTNET
 
-> **HARMONY\_TESTNET**: `"harmony-testnet"`
+> **HARMONY_TESTNET**: `"harmony-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:32
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:32
 
-***
+---
 
-### HORIZEN\_EON\_MAINNET
+### HORIZEN_EON_MAINNET
 
-> **HORIZEN\_EON\_MAINNET**: `"horizen-eon-mainnet"`
+> **HORIZEN_EON_MAINNET**: `"horizen-eon-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:118
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:118
 
-***
+---
 
-### HORIZEN\_GOBI\_TESTNET
+### HORIZEN_GOBI_TESTNET
 
-> **HORIZEN\_GOBI\_TESTNET**: `"horizen-gobi-testnet"`
+> **HORIZEN_GOBI_TESTNET**: `"horizen-gobi-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:119
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:119
 
-***
+---
 
-### KCC\_MAINNET
+### KCC_MAINNET
 
-> **KCC\_MAINNET**: `"kcc-mainnet"`
+> **KCC_MAINNET**: `"kcc-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:92
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:92
 
-***
+---
 
-### KCC\_TESTNET
+### KCC_TESTNET
 
-> **KCC\_TESTNET**: `"kcc-testnet"`
+> **KCC_TESTNET**: `"kcc-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:93
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:93
 
-***
+---
 
-### KINTO\_TESTNET
+### KINTO_TESTNET
 
-> **KINTO\_TESTNET**: `"kinto-testnet"`
+> **KINTO_TESTNET**: `"kinto-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:147
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:147
 
-***
+---
 
-### LINEA\_GOERLI\_TESTNET
+### LINEA_GOERLI_TESTNET
 
-> **LINEA\_GOERLI\_TESTNET**: `"linea-goerli-testnet"`
+> **LINEA_GOERLI_TESTNET**: `"linea-goerli-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:96
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:96
 
-***
+---
 
-### LINEA\_MAINNET
+### LINEA_MAINNET
 
-> **LINEA\_MAINNET**: `"linea-mainnet"`
+> **LINEA_MAINNET**: `"linea-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:95
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:95
 
-***
+---
 
-### LINEA\_SEPOLIA\_TESTNET
+### LINEA_SEPOLIA_TESTNET
 
-> **LINEA\_SEPOLIA\_TESTNET**: `"linea-sepolia-testnet"`
+> **LINEA_SEPOLIA_TESTNET**: `"linea-sepolia-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:97
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:97
 
-***
+---
 
-### LISK\_MAINNET
+### LISK_MAINNET
 
-> **LISK\_MAINNET**: `"lisk-mainnet"`
+> **LISK_MAINNET**: `"lisk-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:122
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:122
 
-***
+---
 
-### LISK\_SEPOLIA\_TESTNET
+### LISK_SEPOLIA_TESTNET
 
-> **LISK\_SEPOLIA\_TESTNET**: `"lisk-sepolia-testnet"`
+> **LISK_SEPOLIA_TESTNET**: `"lisk-sepolia-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:133
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:133
 
-***
+---
 
-### LOOT\_MAINNET
+### LOOT_MAINNET
 
-> **LOOT\_MAINNET**: `"loot-mainnet"`
+> **LOOT_MAINNET**: `"loot-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:148
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:148
 
-***
+---
 
-### LUMOZ\_PUBLIC\_ZKSYNC\_V2
+### LUMOZ_PUBLIC_ZKSYNC_V2
 
-> **LUMOZ\_PUBLIC\_ZKSYNC\_V2**: `"lumoz-public-zksync-v2"`
+> **LUMOZ_PUBLIC_ZKSYNC_V2**: `"lumoz-public-zksync-v2"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:109
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:109
 
-***
+---
 
-### LUMOZ\_STARK\_SPORT
+### LUMOZ_STARK_SPORT
 
-> **LUMOZ\_STARK\_SPORT**: `"lumoz-stark-sport"`
+> **LUMOZ_STARK_SPORT**: `"lumoz-stark-sport"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:110
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:110
 
-***
+---
 
-### MANTA\_SEPOLIA\_TESTNET
+### MANTA_SEPOLIA_TESTNET
 
-> **MANTA\_SEPOLIA\_TESTNET**: `"manta-sepolia-testnet"`
+> **MANTA_SEPOLIA_TESTNET**: `"manta-sepolia-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:151
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:151
 
-***
+---
 
-### MANTLE\_MAINNET
+### MANTLE_MAINNET
 
-> **MANTLE\_MAINNET**: `"mantle-mainnet"`
+> **MANTLE_MAINNET**: `"mantle-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:100
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:100
 
-***
+---
 
-### MANTLE\_SEPOLIA\_TESTNET
+### MANTLE_SEPOLIA_TESTNET
 
-> **MANTLE\_SEPOLIA\_TESTNET**: `"mantle-sepolia-testnet"`
+> **MANTLE_SEPOLIA_TESTNET**: `"mantle-sepolia-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:102
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:102
 
-***
+---
 
-### MATIC\_MAINNET
+### MATIC_MAINNET
 
-> **MATIC\_MAINNET**: `"matic-mainnet"`
+> **MATIC_MAINNET**: `"matic-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:6
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:6
 
-***
+---
 
-### MATIC\_MUMBAI
+### MATIC_MUMBAI
 
-> **MATIC\_MUMBAI**: `"matic-mumbai"`
+> **MATIC_MUMBAI**: `"matic-mumbai"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:7
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:7
 
-***
+---
 
-### MERLIN\_MAINNET
+### MERLIN_MAINNET
 
-> **MERLIN\_MAINNET**: `"merlin-mainnet"`
+> **MERLIN_MAINNET**: `"merlin-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:162
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:162
 
-***
+---
 
-### MERLIN\_TESTNET
+### MERLIN_TESTNET
 
-> **MERLIN\_TESTNET**: `"merlin-testnet"`
+> **MERLIN_TESTNET**: `"merlin-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:163
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:163
 
-***
+---
 
-### METER\_MAINNET
+### METER_MAINNET
 
-> **METER\_MAINNET**: `"meter-mainnet"`
+> **METER_MAINNET**: `"meter-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:82
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:82
 
-***
+---
 
-### METER\_TESTNET
+### METER_TESTNET
 
-> **METER\_TESTNET**: `"meter-testnet"`
+> **METER_TESTNET**: `"meter-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:83
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:83
 
-***
+---
 
-### METIS\_MAINNET
+### METIS_MAINNET
 
-> **METIS\_MAINNET**: `"metis-mainnet"`
+> **METIS_MAINNET**: `"metis-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:46
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:46
 
-***
+---
 
-### METIS\_STARDUST
+### METIS_STARDUST
 
-> **METIS\_STARDUST**: `"metis-stardust"`
+> **METIS_STARDUST**: `"metis-stardust"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:47
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:47
 
-***
+---
 
-### MILKOMEDA\_A1\_MAINNET
+### MILKOMEDA_A1_MAINNET
 
-> **MILKOMEDA\_A1\_MAINNET**: `"milkomeda-a1-mainnet"`
+> **MILKOMEDA_A1_MAINNET**: `"milkomeda-a1-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:84
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:84
 
-***
+---
 
-### MILKOMEDA\_C1\_DEVNET
+### MILKOMEDA_C1_DEVNET
 
-> **MILKOMEDA\_C1\_DEVNET**: `"milkomeda-c1-devnet"`
+> **MILKOMEDA_C1_DEVNET**: `"milkomeda-c1-devnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:86
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:86
 
-***
+---
 
-### MILKOMEDA\_C1\_MAINNET
+### MILKOMEDA_C1_MAINNET
 
-> **MILKOMEDA\_C1\_MAINNET**: `"milkomeda-c1-mainnet"`
+> **MILKOMEDA_C1_MAINNET**: `"milkomeda-c1-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:85
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:85
 
-***
+---
 
-### MODE\_MAINNET
+### MODE_MAINNET
 
-> **MODE\_MAINNET**: `"mode-mainnet"`
+> **MODE_MAINNET**: `"mode-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:146
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:146
 
-***
+---
 
-### MODE\_TESTNET
+### MODE_TESTNET
 
-> **MODE\_TESTNET**: `"mode-testnet"`
+> **MODE_TESTNET**: `"mode-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:145
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:145
 
-***
+---
 
-### MOONBEAM\_MAINNET
+### MOONBEAM_MAINNET
 
-> **MOONBEAM\_MAINNET**: `"moonbeam-mainnet"`
+> **MOONBEAM_MAINNET**: `"moonbeam-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:12
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:12
 
-***
+---
 
-### MOONBEAM\_MOONBASE\_ALPHA
+### MOONBEAM_MOONBASE_ALPHA
 
-> **MOONBEAM\_MOONBASE\_ALPHA**: `"moonbeam-moonbase-alpha"`
+> **MOONBEAM_MOONBASE_ALPHA**: `"moonbeam-moonbase-alpha"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:13
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:13
 
-***
+---
 
-### MOONBEAM\_MOONRIVER
+### MOONBEAM_MOONRIVER
 
-> **MOONBEAM\_MOONRIVER**: `"moonbeam-moonriver"`
+> **MOONBEAM_MOONRIVER**: `"moonbeam-moonriver"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:14
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:14
 
-***
+---
 
-### MOVEMENT\_MEVM\_TESTNET
+### MOVEMENT_MEVM_TESTNET
 
-> **MOVEMENT\_MEVM\_TESTNET**: `"movement-mevm-testnet"`
+> **MOVEMENT_MEVM_TESTNET**: `"movement-mevm-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:165
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:165
 
-***
+---
 
-### OASIS\_SAPPHIRE\_MAINNET
+### OASIS_SAPPHIRE_MAINNET
 
-> **OASIS\_SAPPHIRE\_MAINNET**: `"oasis-sapphire-mainnet"`
+> **OASIS_SAPPHIRE_MAINNET**: `"oasis-sapphire-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:111
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:111
 
-***
+---
 
-### OASIS\_SAPPHIRE\_TESTNET
+### OASIS_SAPPHIRE_TESTNET
 
-> **OASIS\_SAPPHIRE\_TESTNET**: `"oasis-sapphire-testnet"`
+> **OASIS_SAPPHIRE_TESTNET**: `"oasis-sapphire-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:112
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:112
 
-***
+---
 
-### OASYS\_MAINNET
+### OASYS_MAINNET
 
-> **OASYS\_MAINNET**: `"oasys-mainnet"`
+> **OASYS_MAINNET**: `"oasys-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:106
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:106
 
-***
+---
 
-### OASYS\_TESTNET
+### OASYS_TESTNET
 
-> **OASYS\_TESTNET**: `"oasys-testnet"`
+> **OASYS_TESTNET**: `"oasys-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:107
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:107
 
-***
+---
 
-### OPSIDE\_READON\_CONTENT\_TESTNET
+### OPSIDE_READON_CONTENT_TESTNET
 
-> **OPSIDE\_READON\_CONTENT\_TESTNET**: `"opside-readon-content-testnet"`
+> **OPSIDE_READON_CONTENT_TESTNET**: `"opside-readon-content-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:134
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:134
 
-***
+---
 
-### OPTIMISM\_MAINNET
+### OPTIMISM_MAINNET
 
-> **OPTIMISM\_MAINNET**: `"optimism-mainnet"`
+> **OPTIMISM_MAINNET**: `"optimism-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:27
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:27
 
-***
+---
 
-### OPTIMISM\_SEPOLIA
+### OPTIMISM_SEPOLIA
 
-> **OPTIMISM\_SEPOLIA**: `"optimism-sepolia"`
+> **OPTIMISM_SEPOLIA**: `"optimism-sepolia"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:28
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:28
 
-***
+---
 
-### PALM\_MAINNET
+### PALM_MAINNET
 
-> **PALM\_MAINNET**: `"palm-mainnet"`
+> **PALM_MAINNET**: `"palm-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:22
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:22
 
-***
+---
 
-### PALM\_TESTNET
+### PALM_TESTNET
 
-> **PALM\_TESTNET**: `"palm-testnet"`
+> **PALM_TESTNET**: `"palm-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:23
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:23
 
-***
+---
 
-### PGN\_MAINNET
+### PGN_MAINNET
 
-> **PGN\_MAINNET**: `"pgn-mainnet"`
+> **PGN_MAINNET**: `"pgn-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:149
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:149
 
-***
+---
 
-### PGN\_TESTNET
+### PGN_TESTNET
 
-> **PGN\_TESTNET**: `"pgn-testnet"`
+> **PGN_TESTNET**: `"pgn-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:150
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:150
 
-***
+---
 
-### POLYGON\_AMOY\_TESTNET
+### POLYGON_AMOY_TESTNET
 
-> **POLYGON\_AMOY\_TESTNET**: `"polygon-amoy-testnet"`
+> **POLYGON_AMOY_TESTNET**: `"polygon-amoy-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:99
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:99
 
-***
+---
 
-### POLYGON\_ZKEVM\_CARDONA\_TESTNET
+### POLYGON_ZKEVM_CARDONA_TESTNET
 
-> **POLYGON\_ZKEVM\_CARDONA\_TESTNET**: `"polygon-zkevm-cardona-testnet"`
+> **POLYGON_ZKEVM_CARDONA_TESTNET**: `"polygon-zkevm-cardona-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:101
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:101
 
-***
+---
 
-### POLYGON\_ZKEVM\_MAINNET
+### POLYGON_ZKEVM_MAINNET
 
-> **POLYGON\_ZKEVM\_MAINNET**: `"polygon-zkevm-mainnet"`
+> **POLYGON_ZKEVM_MAINNET**: `"polygon-zkevm-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:94
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:94
 
-***
+---
 
-### POLYGON\_ZKEVM\_TESTNET
+### POLYGON_ZKEVM_TESTNET
 
-> **POLYGON\_ZKEVM\_TESTNET**: `"polygon-zkevm-testnet"`
+> **POLYGON_ZKEVM_TESTNET**: `"polygon-zkevm-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:98
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:98
 
-***
+---
 
-### REDSTONE\_MAINNET
+### REDSTONE_MAINNET
 
-> **REDSTONE\_MAINNET**: `"redstone-mainnet"`
+> **REDSTONE_MAINNET**: `"redstone-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:124
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:124
 
-***
+---
 
-### ROLLUX\_MAINNET
+### ROLLUX_MAINNET
 
-> **ROLLUX\_MAINNET**: `"rollux-mainnet"`
+> **ROLLUX_MAINNET**: `"rollux-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:152
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:152
 
-***
+---
 
-### ROLLUX\_TESTNET
+### ROLLUX_TESTNET
 
-> **ROLLUX\_TESTNET**: `"rollux-testnet"`
+> **ROLLUX_TESTNET**: `"rollux-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:153
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:153
 
-***
+---
 
-### RSK\_MAINNET
+### RSK_MAINNET
 
-> **RSK\_MAINNET**: `"rsk-mainnet"`
+> **RSK_MAINNET**: `"rsk-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:15
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:15
 
-***
+---
 
-### RSK\_TESTNET
+### RSK_TESTNET
 
-> **RSK\_TESTNET**: `"rsk-testnet"`
+> **RSK_TESTNET**: `"rsk-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:16
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:16
 
-***
+---
 
-### SCROLL\_MAINNET
+### SCROLL_MAINNET
 
-> **SCROLL\_MAINNET**: `"scroll-mainnet"`
+> **SCROLL_MAINNET**: `"scroll-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:166
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:166
 
-***
+---
 
-### SCROLL\_SEPOLIA\_TESTNET
+### SCROLL_SEPOLIA_TESTNET
 
-> **SCROLL\_SEPOLIA\_TESTNET**: `"scroll-sepolia-testnet"`
+> **SCROLL_SEPOLIA_TESTNET**: `"scroll-sepolia-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:45
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:45
 
-***
+---
 
-### SEI\_MAINNET
+### SEI_MAINNET
 
-> **SEI\_MAINNET**: `"sei-mainnet"`
+> **SEI_MAINNET**: `"sei-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:125
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:125
 
-***
+---
 
-### SOLANA\_MAINNET
+### SOLANA_MAINNET
 
-> **SOLANA\_MAINNET**: `"solana-mainnet"`
+> **SOLANA_MAINNET**: `"solana-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:25
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:25
 
-***
+---
 
-### SX\_MAINNET
+### SX_MAINNET
 
-> **SX\_MAINNET**: `"sx-mainnet"`
+> **SX_MAINNET**: `"sx-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:108
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:108
 
-***
+---
 
-### SYNDR\_TESTNET
+### SYNDR_TESTNET
 
-> **SYNDR\_TESTNET**: `"syndr-testnet"`
+> **SYNDR_TESTNET**: `"syndr-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:114
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:114
 
-***
+---
 
-### TAIKO\_HEKLA\_TESTNET
+### TAIKO_HEKLA_TESTNET
 
-> **TAIKO\_HEKLA\_TESTNET**: `"taiko-hekla-testnet"`
+> **TAIKO_HEKLA_TESTNET**: `"taiko-hekla-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:160
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:160
 
-***
+---
 
-### TAIKO\_MAINNET
+### TAIKO_MAINNET
 
-> **TAIKO\_MAINNET**: `"taiko-mainnet"`
+> **TAIKO_MAINNET**: `"taiko-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:161
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:161
 
-***
+---
 
-### TELOS\_MAINNET
+### TELOS_MAINNET
 
-> **TELOS\_MAINNET**: `"telos-mainnet"`
+> **TELOS_MAINNET**: `"telos-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:156
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:156
 
-***
+---
 
-### TELOS\_TESTNET
+### TELOS_TESTNET
 
-> **TELOS\_TESTNET**: `"telos-testnet"`
+> **TELOS_TESTNET**: `"telos-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:157
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:157
 
-***
+---
 
-### ULTRON\_MAINNET
+### ULTRON_MAINNET
 
-> **ULTRON\_MAINNET**: `"ultron-mainnet"`
+> **ULTRON_MAINNET**: `"ultron-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:129
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:129
 
-***
+---
 
-### ULTRON\_TESTNET
+### ULTRON_TESTNET
 
-> **ULTRON\_TESTNET**: `"ultron-testnet"`
+> **ULTRON_TESTNET**: `"ultron-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:130
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:130
 
-***
+---
 
-### VICTION\_MAINNET
+### VICTION_MAINNET
 
-> **VICTION\_MAINNET**: `"viction-mainnet"`
+> **VICTION_MAINNET**: `"viction-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:158
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:158
 
-***
+---
 
-### VICTION\_TESTNET
+### VICTION_TESTNET
 
-> **VICTION\_TESTNET**: `"viction-testnet"`
+> **VICTION_TESTNET**: `"viction-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:159
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:159
 
-***
+---
 
-### X1\_MAINNET
+### X1_MAINNET
 
-> **X1\_MAINNET**: `"x1-mainnet"`
+> **X1_MAINNET**: `"x1-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:116
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:116
 
-***
+---
 
-### XAI\_MAINNET
+### XAI_MAINNET
 
-> **XAI\_MAINNET**: `"xai-mainnet"`
+> **XAI_MAINNET**: `"xai-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:113
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:113
 
-***
+---
 
-### ZETACHAIN\_MAINNET
+### ZETACHAIN_MAINNET
 
-> **ZETACHAIN\_MAINNET**: `"zetachain-mainnet"`
+> **ZETACHAIN_MAINNET**: `"zetachain-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:144
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:144
 
-***
+---
 
-### ZETACHAIN\_TESTNET
+### ZETACHAIN_TESTNET
 
-> **ZETACHAIN\_TESTNET**: `"zetachain-testnet"`
+> **ZETACHAIN_TESTNET**: `"zetachain-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:143
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:143
 
-***
+---
 
-### ZKSYNC\_MAINNET
+### ZKSYNC_MAINNET
 
-> **ZKSYNC\_MAINNET**: `"zksync-mainnet"`
+> **ZKSYNC_MAINNET**: `"zksync-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:135
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:135
 
-***
+---
 
-### ZKSYNC\_SEPOLIA\_TESTNET
+### ZKSYNC_SEPOLIA_TESTNET
 
-> **ZKSYNC\_SEPOLIA\_TESTNET**: `"zksync-sepolia-testnet"`
+> **ZKSYNC_SEPOLIA_TESTNET**: `"zksync-sepolia-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:136
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:136
 
-***
+---
 
-### ZORA\_MAINNET
+### ZORA_MAINNET
 
-> **ZORA\_MAINNET**: `"zora-mainnet"`
+> **ZORA_MAINNET**: `"zora-mainnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:131
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:131
 
-***
+---
 
-### ZORA\_SEPOLIA\_TESTNET
+### ZORA_SEPOLIA_TESTNET
 
-> **ZORA\_SEPOLIA\_TESTNET**: `"zora-sepolia-testnet"`
+> **ZORA_SEPOLIA_TESTNET**: `"zora-sepolia-testnet"`
 
 #### Defined in
 
-node\_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:132
+node_modules/@covalenthq/client-sdk/dist/cjs/src/utils/types/Generic.types.d.ts:132
