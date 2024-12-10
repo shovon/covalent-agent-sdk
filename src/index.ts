@@ -1,16 +1,8 @@
 import {
     baseDataSchema,
-    historicalPortfolioSchema,
-    historicalTokenBalanceSchema,
-    nftApprovalsSchema,
     nftFloorPriceSchema,
-    nftResponseSchema,
-    quoteSchema,
-    tokenApprovalSchema,
-    transactionResponseSchema,
-    transactionsForWalletSchema,
-    transactionSummarySchema,
 } from "./schema";
+import { GoldRushClient } from "@covalenthq/client-sdk";
 
 type BASE_MAINNET = "base-mainnet";
 type BASE_SEPOLIA_TESTNET = "base-sepolia-testnet";
@@ -53,22 +45,28 @@ export type Currency =
     | "CHF"
     | "GBP";
 
+const USER_AGENT_NAME = "AgentSDK";
+
 /**
  * The Covalent agent
  */
 export class Agent {
+    private client: GoldRushClient;
+
     /**
      * Initializes a new instances of the Agent class.
      * @param key The GoldRush API key
      */
     constructor(
         private key: string = process.env["AGENT_SEMANTIC_SDK_API_KEY"] ?? "",
-    ) {}
+    ) {
+        this.client = new GoldRushClient(key, { source: USER_AGENT_NAME });
+    }
 
     private get headers() {
         return {
             Authorization: `Bearer ${this.key}`,
-            "User-Agent": `AgentSemanticSDK/${require("../package.json").version}`,
+            "X-Requested-With": `${USER_AGENT_NAME}/${require("../package.json").version}`,
         };
     }
 
@@ -107,16 +105,11 @@ export class Agent {
         chainName: ChainName,
         { walletAddress }: { walletAddress: string },
     ) {
-        const options = {
-            method: "GET",
-            headers: this.headers,
-        };
-
-        return baseDataSchema(historicalTokenBalanceSchema).parse(
-            await fetch(
-                `https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/historical_balances/`,
-                options,
-            ).then((response) => response.json()),
+        return (
+            await this.client.BalanceService.getHistoricalTokenBalancesForWalletAddress(
+                chainName,
+                walletAddress,
+            )
         ).data;
     }
 
@@ -245,6 +238,7 @@ export class Agent {
         >();
 
         for (const historical of historicals?.items ?? []) {
+            if (!historical.last_transferred_at) continue;
             if (!historical.contract_address) continue;
             if (!historical.contract_decimals) continue;
             if (!historical.balance) continue;
@@ -272,13 +266,10 @@ export class Agent {
             const previousPrice = await this.getQuote(chainName, {
                 contractAddress: historical.contract_address,
                 currency,
-                from: (() => {
-                    const date = new Date(historical.last_transferred_at);
-                    date.setDate(date.getDate() - 1);
-                    return date.toISOString();
-                })(),
+                from: historical.last_transferred_at,
                 to: historical.last_transferred_at,
             });
+            if (!previousPrice) continue;
             {
                 let total = 0;
                 let count = 0;
@@ -349,16 +340,11 @@ export class Agent {
         chainName: ChainName,
         { walletAddress }: { walletAddress: string },
     ) {
-        const options = {
-            method: "GET",
-            headers: this.headers,
-        };
-
-        return baseDataSchema(historicalPortfolioSchema).parse(
-            await fetch(
-                `https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/portfolio_v2/`,
-                options,
-            ).then((response) => response.json()),
+        return (
+            await this.client.BalanceService.getHistoricalPortfolioForWalletAddress(
+                chainName,
+                walletAddress,
+            )
         ).data;
     }
 
@@ -376,17 +362,10 @@ export class Agent {
         chainName: ChainName,
         { walletAddress }: { walletAddress: string },
     ) {
-        const options = {
-            method: "GET",
-            headers: this.headers,
-        };
-
-        return baseDataSchema(transactionSummarySchema).parse(
-            await fetch(
-                `https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/transactions_summary/`,
-                options,
-            ).then((response) => response.json()),
-        ).data;
+        return this.client.TransactionService.getTransactionSummary(
+            chainName,
+            walletAddress,
+        );
     }
 
     /**
@@ -407,20 +386,9 @@ export class Agent {
             page: number;
         },
     ) {
-        // TODO: build a paginator.
-
-        const options = {
-            method: "GET",
-            headers: this.headers,
-        };
-
-        return transactionsForWalletSchema.parse(
-            await fetch(
-                `https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/transactions_v3/page/${page}/`,
-                options,
-            ).then(async (response) => {
-                return response.text();
-            }),
+        return this.client.TransactionService.getAllTransactionsForAddress(
+            chainName,
+            walletAddress,
         );
     }
 
@@ -435,20 +403,16 @@ export class Agent {
      *   - Quote currency
      *   - Array of transaction items with detailed metadata
      */
-    async getAllChainsTransactions(walletAddress: string) {
-        const options = {
-            method: "GET",
-            headers: this.headers,
-        };
-
-        return baseDataSchema(transactionResponseSchema).parse(
-            await fetch(
-                `https://api.covalenthq.com/v1/allchains/transactions/?addresses=${encodeURIComponent(
-                    walletAddress,
-                )}`,
-                options,
-            ).then(async (response) => response.json()),
-        ).data;
+    async getAllChainsTransactions(
+        walletAddress: string,
+    ): Promise<
+        ReturnType<
+            typeof this.client.AllChainsService.getMultiChainAndMultiAddressTransactions
+        >
+    > {
+        return this.client.AllChainsService.getMultiChainAndMultiAddressTransactions(
+            { addresses: [walletAddress] },
+        );
     }
 
     /**
@@ -470,17 +434,7 @@ export class Agent {
         chainName: ChainName,
         { walletAddress }: { walletAddress: string },
     ) {
-        const options = {
-            method: "GET",
-            headers: this.headers,
-        };
-
-        return baseDataSchema(nftResponseSchema).parse(
-            await fetch(
-                `https://api.covalenthq.com/v1/${chainName}/address/${walletAddress}/balances_nft/`,
-                options,
-            ).then((response) => response.json()),
-        ).data;
+        return this.client.NftService.getNftsForAddress(chainName, walletAddress);
     }
 
     /**
@@ -537,19 +491,7 @@ export class Agent {
         chainName: ChainName,
         { walletAddress }: { walletAddress: string },
     ) {
-        const options = {
-            method: "GET",
-            headers: this.headers,
-        };
-
-        return baseDataSchema(tokenApprovalSchema).parse(
-            await fetch(
-                `https://api.covalenthq.com/v1/${chainName}/approvals/${walletAddress}/`,
-                options,
-            ).then((response) => {
-                return response.json();
-            }),
-        );
+        return this.client.SecurityService.getApprovals(chainName, walletAddress);
     }
 
     /**
@@ -564,18 +506,9 @@ export class Agent {
         chainName: ChainName,
         { walletAddress }: { walletAddress: string },
     ) {
-        const options = {
-            method: "GET",
-            headers: this.headers,
-        };
-
-        return baseDataSchema(nftApprovalsSchema).parse(
-            await fetch(
-                `https://api.covalenthq.com/v1/${chainName}/nft/approvals/${walletAddress}/`,
-                options,
-            ).then((response) => {
-                return response.json();
-            }),
+        return this.client.SecurityService.getApprovals(
+            chainName,
+            walletAddress,
         );
     }
 
@@ -598,28 +531,21 @@ export class Agent {
         }: {
             contractAddress: string;
             currency: Currency;
-            from?: string;
-            to?: string;
+            from?: Date;
+            to?: Date;
         },
     ) {
-        const options = {
-            method: "GET",
-            headers: this.headers,
-        };
+        const options: Record<string, string> = {};
+        if (from) options["from"] = from.toISOString();
+        if (to) options["to"] = to.toISOString();
 
-        const obj: Record<string, string> = {};
-        if (from) obj["from"] = from;
-        if (to) obj["to"] = to;
-
-        const params = new URLSearchParams(obj).toString();
-
-        return baseDataSchema(quoteSchema).parse(
-            await fetch(
-                `https://api.covalenthq.com/v1/pricing/historical_by_addresses_v2/${chainName}/${currency}/${contractAddress}/${
-                    !!params ? `?${params}` : ""
-                }`,
+        return (
+            await this.client.PricingService.getTokenPrices(
+                chainName,
+                currency,
+                contractAddress,
                 options,
-            ).then((response) => response.json()),
+            )
         ).data;
     }
 }
