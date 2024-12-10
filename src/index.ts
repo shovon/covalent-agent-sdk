@@ -1,3 +1,4 @@
+import packageJson from "../package.json";
 import { baseDataSchema, nftFloorPriceSchema } from "./schema";
 import { GoldRushClient } from "@covalenthq/client-sdk";
 
@@ -63,7 +64,7 @@ export class Agent {
     private get headers() {
         return {
             Authorization: `Bearer ${this.key}`,
-            "X-Requested-With": `${USER_AGENT_NAME}/${require("../package.json").version}`,
+            "X-Requested-With": `${USER_AGENT_NAME}/${packageJson.version}`,
         };
     }
 
@@ -377,10 +378,8 @@ export class Agent {
         chainName: ChainName,
         {
             walletAddress,
-            page,
         }: {
             walletAddress: string;
-            page: number;
         },
     ) {
         return this.client.TransactionService.getAllTransactionsForAddress(
