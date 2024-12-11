@@ -75,22 +75,12 @@ export class Agent {
      */
     async getTokenBalancesForChain(
         chainName: ChainName,
-        {
-            walletAddress,
-            contractAddress,
-        }: { walletAddress: string; contractAddress: string },
+        { walletAddress }: { walletAddress: string },
     ) {
-        const historicals = await this.getHistoricalTokenBalancesForAddress(
+        return await this.client.BalanceService.getTokenBalancesForWalletAddress(
             chainName,
-            { walletAddress },
+            walletAddress,
         );
-        let sum = 0n;
-        for (const historical of historicals?.items ?? []) {
-            if (historical.contract_address === contractAddress) {
-                sum += historical.balance ?? 0n;
-            }
-        }
-        return sum;
     }
 
     /**
