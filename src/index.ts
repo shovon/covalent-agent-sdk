@@ -91,12 +91,15 @@ export class Agent {
      */
     async getHistoricalTokenBalancesForAddress(
         chainName: ChainName,
-        { walletAddress }: { walletAddress: string },
+        { walletAddress, date }: { walletAddress: string; date?: Date },
     ) {
         return (
             await this.client.BalanceService.getHistoricalTokenBalancesForWalletAddress(
                 chainName,
                 walletAddress,
+                {
+                    date: date?.toISOString() ?? undefined,
+                },
             )
         ).data;
     }
