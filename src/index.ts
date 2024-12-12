@@ -3,27 +3,10 @@ import { baseDataSchema, nftFloorPriceSchema } from "./schema";
 import { GoldRushClient } from "@covalenthq/client-sdk";
 
 type BASE_MAINNET = "base-mainnet";
-type BASE_SEPOLIA_TESTNET = "base-sepolia-testnet";
-type BASE_TESTNET = "base-testnet";
 
-type BaseChain = BASE_MAINNET | BASE_SEPOLIA_TESTNET | BASE_TESTNET;
+type BaseChain = BASE_MAINNET;
 
-type BNB_OPBNB_TESTNET = "bnb-opbnb-testnet";
-type BNB_ANTIMATTER_TESTNET = "bnb-antimatter-testnet";
-type BNB_FNCY_MAINNET = "bnb-fncy-mainnet";
-type BNB_FNCY_TESTNET = "bnb-fncy-testnet";
-type BNB_META_APES_MAINNET = "bnb-meta-apes-mainnet";
-type BNB_OPBNB_MAINNET = "bnb-opbnb-mainnet";
-
-type BNBChain =
-    | BNB_OPBNB_TESTNET
-    | BNB_ANTIMATTER_TESTNET
-    | BNB_FNCY_MAINNET
-    | BNB_FNCY_TESTNET
-    | BNB_META_APES_MAINNET
-    | BNB_OPBNB_MAINNET;
-
-export type ChainName = BaseChain | BNBChain;
+export type ChainName = BaseChain;
 
 export type Currency =
     | "USD"
