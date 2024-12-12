@@ -1,5 +1,9 @@
 import packageJson from "../package.json";
-import { baseDataSchema, nftFloorPriceSchema } from "./schema";
+import {
+    allchainBalancesSchema,
+    baseDataSchema,
+    nftFloorPriceSchema,
+} from "./schema";
 import { GoldRushClient } from "@covalenthq/client-sdk";
 
 type BASE_MAINNET = "base-mainnet";
@@ -88,212 +92,6 @@ export class Agent {
     }
 
     /**
-     * Gets the token holdings for a given wallet addres on a chain.
-     * @param chainName The chain to lookup
-     * @param options  Contains the wallet address and the currency to work with
-     */
-    async getSpotBalances(
-        chainName: ChainName,
-        {
-            walletAddress,
-            currency,
-        }: {
-            walletAddress: string;
-            currency: Currency;
-        },
-    ) {
-        const historicals = await this.getHistoricalTokenBalancesForAddress(
-            chainName,
-            {
-                walletAddress,
-            },
-        );
-
-        // TODO: NAV should get a breakdown by asset.
-
-        const holdings = new Map<
-            string,
-            Exclude<
-                Exclude<typeof historicals, null>["items"],
-                null
-            >[number] & {
-                value: {
-                    amount: number;
-                    currency: Currency;
-                };
-            }
-        >();
-
-        for (const historical of historicals?.items ?? []) {
-            if (!historical.contract_address) continue;
-            if (!historical.contract_decimals) continue;
-            if (!historical.balance) continue;
-
-            const holding = {
-                ...historical,
-                value: {
-                    amount: 0,
-                    currency: currency,
-                },
-            };
-
-            holdings.set(historical.contract_address, holding);
-
-            const quotes = await this.getQuote(chainName, {
-                contractAddress: historical.contract_address,
-                currency,
-            });
-            if (!quotes) continue;
-
-            let total = 0;
-            let count = 0;
-
-            for (const quote of quotes) {
-                for (const item of quote.items ?? []) {
-                    if (item.price === null || item.price === undefined)
-                        continue;
-                    total += item.price;
-                    count++;
-                }
-            }
-
-            // TODO: determine if it's better to conver the numberator to a number or
-            //   or… the denominator to BigInt
-            holding.value.amount =
-                count === 0
-                    ? 0
-                    : (Number(historical.balance) /
-                          10 ** historical.contract_decimals) *
-                      (total / count);
-        }
-
-        return [...holdings].map(([, v]) => v);
-    }
-
-    /**
-     * Gets the token holdings for a given wallet addres on a chain.
-     * @param chainName The chain to lookup
-     * @param options  Contains the wallet address and the currency to work with
-     */
-    async getGrowth(
-        chainName: ChainName,
-        {
-            walletAddress,
-            currency,
-        }: {
-            walletAddress: string;
-            currency: Currency;
-        },
-    ) {
-        const historicals = await this.getHistoricalTokenBalancesForAddress(
-            chainName,
-            {
-                walletAddress,
-            },
-        );
-
-        // TODO: NAV should get a breakdown by asset.
-
-        const holdings = new Map<
-            string,
-            Exclude<
-                Exclude<typeof historicals, null>["items"],
-                null
-            >[number] & {
-                value: {
-                    amount: number;
-                    currency: Currency;
-                };
-                valueAtPurchase: {
-                    amount: number;
-                    currency: Currency;
-                };
-            }
-        >();
-
-        for (const historical of historicals?.items ?? []) {
-            if (!historical.last_transferred_at) continue;
-            if (!historical.contract_address) continue;
-            if (!historical.contract_decimals) continue;
-            if (!historical.balance) continue;
-
-            const holding = {
-                ...historical,
-                value: {
-                    amount: 0,
-                    currency: currency,
-                },
-                valueAtPurchase: {
-                    amount: 0,
-                    currency: currency,
-                },
-            };
-
-            holdings.set(historical.contract_address, holding);
-
-            const currentPrice = await this.getQuote(chainName, {
-                contractAddress: historical.contract_address,
-                currency,
-            });
-            if (!currentPrice) continue;
-
-            const previousPrice = await this.getQuote(chainName, {
-                contractAddress: historical.contract_address,
-                currency,
-                from: historical.last_transferred_at,
-                to: historical.last_transferred_at,
-            });
-            if (!previousPrice) continue;
-            {
-                let total = 0;
-                let count = 0;
-
-                for (const quote of currentPrice) {
-                    for (const item of quote.items ?? []) {
-                        if (item.price === null || item.price === undefined)
-                            continue;
-                        total += item.price;
-                        count++;
-                    }
-                }
-
-                // TODO: determine if it's better to conver the numberator to a number or
-                //   or… the denominator to BigInt
-                holding.value.amount =
-                    count === 0
-                        ? 0
-                        : (Number(historical.balance) /
-                              10 ** historical.contract_decimals) *
-                          (total / count);
-            }
-            {
-                let total = 0;
-                let count = 0;
-
-                for (const quote of previousPrice) {
-                    for (const item of quote.items ?? []) {
-                        if (item.price === null || item.price === undefined)
-                            continue;
-                        total += item.price;
-                        count++;
-                    }
-                }
-
-                // TODO: determine if it's better to conver the numberator to a number or
-                //   or… the denominator to BigInt
-                holding.valueAtPurchase.amount =
-                    count === 0
-                        ? 0
-                        : (Number(historical.balance) /
-                              10 ** historical.contract_decimals) *
-                          (total / count);
-            }
-        }
-
-        return [...holdings].map(([, v]) => v);
-    }
-
-    /**
      * Retrieves the historical portfolio data for a given wallet address on a specified blockchain.
      * This includes detailed information about token holdings and their value changes over time.
      *
@@ -312,12 +110,13 @@ export class Agent {
 
     async getHistoricalPortfolioForWalletAddress(
         chainName: ChainName,
-        { walletAddress }: { walletAddress: string },
+        { walletAddress, days }: { walletAddress: string; days?: number },
     ) {
         return (
             await this.client.BalanceService.getHistoricalPortfolioForWalletAddress(
                 chainName,
                 walletAddress,
+                { days },
             )
         ).data;
     }
@@ -377,13 +176,53 @@ export class Agent {
      */
     async getMultiChainTransactions(
         walletAddress: string,
+        {
+            before,
+            after,
+            limit,
+        }: { before?: Date; after?: Date; limit?: number },
     ): Promise<
         ReturnType<
             typeof this.client.AllChainsService.getMultiChainAndMultiAddressTransactions
         >
     > {
         return this.client.AllChainsService.getMultiChainAndMultiAddressTransactions(
-            { addresses: [walletAddress], chains: ["base-mainnet"] },
+            {
+                addresses: [walletAddress],
+                chains: ["base-mainnet"],
+                before: before?.toISOString() ?? undefined,
+                after: after?.toISOString() ?? undefined,
+                limit,
+            },
+        );
+    }
+
+    /**
+     * Retrieves token balances across all supported blockchains for a given wallet address.
+     *
+     * @param {string} walletAddress - The wallet address to retrieve balances for
+     * @returns {Promise<z.infer<typeof allchainBalancesSchema>>} A promise that resolves to the multi-chain balance data.
+     *   The response follows the allchainBalancesSchema structure which includes:
+     *   - Updated timestamp
+     *   - Pagination cursors
+     *   - Quote currency
+     *   - Array of balance items with:
+     *     - Contract details (name, symbol, address, decimals)
+     *     - Balance information (current and 24h ago)
+     *     - Quote rates and converted values
+     *     - Chain metadata
+     */
+    async getMultichainBalances(walletAddress: string) {
+        const options = {
+            method: "GET",
+            headers: this.headers,
+        };
+
+        baseDataSchema(allchainBalancesSchema).parse(
+            await fetch(
+                `https://api.covalenthq.com/v1/allchains/address/${encodeURIComponent(walletAddress)}/balances/?chains=${encodeURIComponent(["base-mainnet"].join(","))}`,
+                options,
+            ).then((response) => response.json()),
         );
     }
 
