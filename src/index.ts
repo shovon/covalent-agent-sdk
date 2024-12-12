@@ -392,7 +392,7 @@ export class Agent {
      *   - Quote currency
      *   - Array of transaction items with detailed metadata
      */
-    async getAllChainsTransactions(
+    async getMultiChainTransactions(
         walletAddress: string,
     ): Promise<
         ReturnType<
