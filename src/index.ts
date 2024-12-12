@@ -1,5 +1,9 @@
 import packageJson from "../package.json";
-import { baseDataSchema, nftFloorPriceSchema } from "./schema";
+import {
+    allchainBalancesSchema,
+    baseDataSchema,
+    nftFloorPriceSchema,
+} from "./schema";
 import { GoldRushClient } from "@covalenthq/client-sdk";
 
 type BASE_MAINNET = "base-mainnet";
@@ -384,6 +388,35 @@ export class Agent {
     > {
         return this.client.AllChainsService.getMultiChainAndMultiAddressTransactions(
             { addresses: [walletAddress], chains: ["base-mainnet"] },
+        );
+    }
+
+    /**
+     * Retrieves token balances across all supported blockchains for a given wallet address.
+     *
+     * @param {string} walletAddress - The wallet address to retrieve balances for
+     * @returns {Promise<z.infer<typeof allchainBalancesSchema>>} A promise that resolves to the multi-chain balance data.
+     *   The response follows the allchainBalancesSchema structure which includes:
+     *   - Updated timestamp
+     *   - Pagination cursors
+     *   - Quote currency
+     *   - Array of balance items with:
+     *     - Contract details (name, symbol, address, decimals)
+     *     - Balance information (current and 24h ago)
+     *     - Quote rates and converted values
+     *     - Chain metadata
+     */
+    async getMultichainBalances(walletAddress: string) {
+        const options = {
+            method: "GET",
+            headers: this.headers,
+        };
+
+        baseDataSchema(allchainBalancesSchema).parse(
+            await fetch(
+                `https://api.covalenthq.com/v1/allchains/address/${encodeURIComponent(walletAddress)}/balances/?chains=${encodeURIComponent(["base-mainnet"].join(","))}`,
+                options,
+            ).then((response) => response.json()),
         );
     }
 
