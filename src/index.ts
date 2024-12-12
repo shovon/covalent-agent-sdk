@@ -400,7 +400,7 @@ export class Agent {
         >
     > {
         return this.client.AllChainsService.getMultiChainAndMultiAddressTransactions(
-            { addresses: [walletAddress] },
+            { addresses: [walletAddress], chains: ["base-mainnet"] },
         );
     }
 
