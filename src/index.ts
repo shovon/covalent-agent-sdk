@@ -316,12 +316,13 @@ export class Agent {
 
     async getHistoricalPortfolioForWalletAddress(
         chainName: ChainName,
-        { walletAddress }: { walletAddress: string },
+        { walletAddress, days }: { walletAddress: string; days?: number },
     ) {
         return (
             await this.client.BalanceService.getHistoricalPortfolioForWalletAddress(
                 chainName,
                 walletAddress,
+                { days },
             )
         ).data;
     }
