@@ -381,13 +381,24 @@ export class Agent {
      */
     async getMultiChainTransactions(
         walletAddress: string,
+        {
+            before,
+            after,
+            limit,
+        }: { before?: Date; after?: Date; limit?: number },
     ): Promise<
         ReturnType<
             typeof this.client.AllChainsService.getMultiChainAndMultiAddressTransactions
         >
     > {
         return this.client.AllChainsService.getMultiChainAndMultiAddressTransactions(
-            { addresses: [walletAddress], chains: ["base-mainnet"] },
+            {
+                addresses: [walletAddress],
+                chains: ["base-mainnet"],
+                before: before?.toISOString() ?? undefined,
+                after: after?.toISOString() ?? undefined,
+                limit,
+            },
         );
     }
 
